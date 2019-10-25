@@ -1,0 +1,53 @@
+{
+  "name": "thirdlove-frontend-test",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "start-dev": "nodemon dist",
+    "build-dev": "webpack",
+    "watch": "webpack --watch",
+    "dev": "webpack && concurrently \"webpack --watch\" \"nodemon dist\"",
+    "lint:js": "eslint index.js src/**",
+    "start": "NODE_ENV=production node dist/index.js",
+    "build": "webpack --mode=production"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "concurrently": "^3.6.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "fs-extra": "^7.0.1",
+    "nodemon": "^1.19.4",
+    "react-addons-test-utils": "^15.6.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slemankassis/thirdlove-frontend-test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/slemankassis/thirdlove-frontend-test/issues"
+  },
+  "homepage": "https://github.com/slemankassis/thirdlove-frontend-test#readme",
+  "author": "Sleman Kassis",
+  "license": "ISC"
+}
