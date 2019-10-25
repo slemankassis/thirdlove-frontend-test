@@ -23,6 +23,7 @@ module.exports = {
   rules: {
     "react/jsx-filename-extension": "off",
     "no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
-    "no-console": "off"
+    "no-console": "off",
+    "no-underscore-dangle": 0
   },
 };
