@@ -4,16 +4,6 @@ const path = require('path');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const ProductView = require('./public/components/ProductView');
-const { getDataService } = require('./services/product');
-
-const fetchSiteData = async () => {
-  getDataService()
-    .then(({ data }) => {
-      console.log(data);
-      return data;
-    })
-    .catch((err) => console.log(err));
-};
 
 const app = express();
 
@@ -22,10 +12,9 @@ app.use(compression());
 app.use('/static', express.static(path.resolve(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-  const name = fetchSiteData();
-
+  const pageTitle = 'Third Love Test';
   const componentStream = ReactDOMServer.renderToNodeStream(
-    <ProductView name={name.product} />,
+    <ProductView pageTitle={pageTitle} />,
   );
 
   const htmlStart = `
@@ -35,12 +24,10 @@ app.get('/', (req, res) => {
       <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <script>window.__INITIAL__DATA__ = ${JSON.stringify({ name })}</script>
+      <script>window.__INITIAL__DATA__ = ${JSON.stringify({ pageTitle })}</script>
     </head>
     <body>
     <div id="root">`;
-
-    console.log("111"+JSON.stringify({ name }));
 
   res.write(htmlStart);
 

@@ -3,6 +3,6 @@ const ReactDOM = require('react-dom');
 const ProductView = require('./components/ProductView');
 
 ReactDOM.hydrate(
-  <ProductView name={window.__INITIAL__DATA__.name} />,
+  <ProductView pageTitle={window.__INITIAL__DATA__.pageTitle} />,
   document.getElementById('root'),
 );
