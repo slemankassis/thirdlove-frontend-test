@@ -3,22 +3,18 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "start-dev": "nodemon dist",
-    "build-dev": "webpack",
-    "watch": "webpack --watch",
     "dev": "webpack && concurrently \"webpack --watch\" \"nodemon dist\"",
-    "lint:js": "eslint index.js src/**",
-    "start": "NODE_ENV=production node dist/index.js",
-    "build": "webpack --mode=production",
-    "git": "git pull && git push"
+    "build-dev": "webpack --mode=development",
+    "start-dev": "NODE_ENV=development node dist/index.js",
+    "build": "webpack --mode=development",
+    "start": "NODE_ENV=development node dist/index.js"
   },
   "dependencies": {
     "axios": "^0.19.0",
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "react-router-dom": "^4.3.1"
+    "react-dom": "^16.11.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
