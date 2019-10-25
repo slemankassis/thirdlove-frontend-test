@@ -1,8 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Hello from './components/Hello'
+const React = require('react');
+const ReactDOM = require('react-dom');
+const Hello = require('./components/Hello');
 
 ReactDOM.hydrate(
   <Hello name={window.__INITIAL__DATA__.name} />,
-  document.getElementById('root')
-)
+  document.getElementById('root'),
+);
