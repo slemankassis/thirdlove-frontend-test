@@ -21,5 +21,8 @@ module.exports = {
     'react',
   ],
   rules: {
+    "react/jsx-filename-extension": "off",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
+    "no-console": "off"
   },
 };
