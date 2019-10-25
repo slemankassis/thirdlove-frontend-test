@@ -4,6 +4,16 @@ const path = require('path');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const ProductView = require('./public/components/ProductView');
+const { getDataService } = require('./services/product');
+
+const fetchSiteData = async () => {
+  getDataService()
+    .then(({ data }) => {
+      console.log(data);
+      return data;
+    })
+    .catch((err) => console.log(err));
+};
 
 const app = express();
 
@@ -12,10 +22,10 @@ app.use(compression());
 app.use('/static', express.static(path.resolve(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-  const { name = 'Name' } = req.query;
+  const name = fetchSiteData();
 
   const componentStream = ReactDOMServer.renderToNodeStream(
-    <ProductView name={name} />,
+    <ProductView name={name.product} />,
   );
 
   const htmlStart = `
@@ -29,6 +39,8 @@ app.get('/', (req, res) => {
     </head>
     <body>
     <div id="root">`;
+
+    console.log("111"+JSON.stringify({ name }));
 
   res.write(htmlStart);
 
@@ -50,7 +62,7 @@ app.get('/', (req, res) => {
   });
 });
 
-app.get('/with-react-router*', (req, res) => {  // without client side rendering
+app.get('/with-react-router*', (req, res) => { // without client side rendering
   const { name = 'Name' } = req.query;
 
   const component = ReactDOMServer.renderToString(
@@ -83,6 +95,6 @@ app.get('*', (req, res) => res
     '<body style="background-color: #3c3c3c;"><h1 style="font-family: sans-serif; color: #c7c7c7; text-align: center;">404 - Not Found</h1></body>',
   ));
 
-const { PORT = 3000 } = process.env;
+const { PORT = 8081 } = process.env;
 
 app.listen(PORT, () => console.log('######## app running ########'));
