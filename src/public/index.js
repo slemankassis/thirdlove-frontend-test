@@ -1,8 +1,8 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-const ProductView = require('./components/ProductView');
+const App = require('./components/App');
 
 ReactDOM.hydrate(
-  <ProductView pageTitle={window.__INITIAL__DATA__.pageTitle} />,
+  <App pageTitle={window.__INITIAL__DATA__.pageTitle} />,
   document.getElementById('root'),
 );
