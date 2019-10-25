@@ -1,7 +1,6 @@
 /**
  * Modules dependencies
  */
-const data = require('./../../data');
 const axios = require('axios');
 
 /**

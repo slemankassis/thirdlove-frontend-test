@@ -22,7 +22,7 @@ app.use(compression());
 app.use('/static', express.static(path.resolve(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-  const name = fetchSiteData();
+  const name = fetchSiteData;
 
   const componentStream = ReactDOMServer.renderToNodeStream(
     <ProductView name={name.product} />,
