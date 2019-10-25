@@ -9,7 +9,8 @@
     "dev": "webpack && concurrently \"webpack --watch\" \"nodemon dist\"",
     "lint:js": "eslint index.js src/**",
     "start": "NODE_ENV=production node dist/index.js",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "git": "git pull && git push"
   },
   "dependencies": {
     "compression": "^1.7.4",
