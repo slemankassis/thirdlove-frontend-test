@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
-const ProductView = require('./public/components/ProductView');
+const App = require('./public/components/App');
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.use('/static', express.static(path.resolve(__dirname, 'public')));
 app.get('/', (req, res) => {
   const pageTitle = 'Third Love Test';
   const componentStream = ReactDOMServer.renderToNodeStream(
-    <ProductView pageTitle={pageTitle} />,
+    <App pageTitle={pageTitle} />,
   );
 
   const htmlStart = `
@@ -53,7 +53,7 @@ app.get('/with-react-router*', (req, res) => { // without client side rendering
   const { name = 'Name' } = req.query;
 
   const component = ReactDOMServer.renderToString(
-    <ProductView name={name} />,
+    <App name={name} />,
   );
 
   const html = `
