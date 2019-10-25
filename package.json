@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "webpack && concurrently \"webpack --watch\" \"nodemon dist\"",
     "build-dev": "webpack --mode=development",
+    "watch": "webpack --watch",
     "start-dev": "NODE_ENV=development node dist/index.js",
     "build": "webpack --mode=development",
     "start": "NODE_ENV=development node dist/index.js"
