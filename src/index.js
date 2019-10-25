@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
   });
 });
 
-app.get('/with-react-router*', (req, res) => {
+app.get('/with-react-router*', (req, res) => {  // without client side rendering
   const { name = 'Name' } = req.query;
 
   const component = ReactDOMServer.renderToString(
