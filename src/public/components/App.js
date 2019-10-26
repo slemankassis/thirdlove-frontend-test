@@ -2,9 +2,6 @@ const React = require('react');
 const { useFetch } = require('../../hooks');
 const ProductView = require('./ProductView');
 
-require('./style_app.scss');
-
-// eslint-disable-next-line react/prop-types
 const App = ({ pageTitle }) => {
   const [data, loading] = useFetch(
     'https://www.mocky.io/v2/5c6c3a92320000e83bbef971',
