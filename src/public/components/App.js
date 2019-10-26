@@ -2,6 +2,8 @@ const React = require('react');
 const { useFetch } = require('../../hooks');
 const ProductView = require('./ProductView');
 
+require('./style.scss');
+
 // eslint-disable-next-line react/prop-types
 const App = ({ pageTitle }) => {
   const [data, loading] = useFetch(

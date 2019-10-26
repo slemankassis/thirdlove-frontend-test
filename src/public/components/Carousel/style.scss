@@ -1,0 +1,44 @@
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
+
+@import "./styles/image-gallery.scss";
+
+$ig-grey: #888888 !default;
+
+.image-gallery-slide-wrapper {
+  &.left {
+    width: auto;
+  }
+}
+
+.image-gallery-thumbnail {
+  &.active {
+    border: 1px solid $ig-grey;
+
+    @media (max-width: $ig-screen-sm-min) {
+      border: 3px solid $ig-grey;
+    }
+  }
+}
+
+.image-gallery-bullets {
+  .image-gallery-bullet {
+    background: #cccccc;
+    box-shadow: none;
+    border: none;
+    padding: 4px;
+
+    &.active {
+      background: #444444;
+    }
+  }
+}
+
+@media only screen and (min-width: 980px) {
+  .image-gallery-slide-wrapper { // Desktop
+    &.left {
+      max-width: 652px;
+      max-height: 726px;
+      width: calc(100% - 113px);
+    }
+  }
+}

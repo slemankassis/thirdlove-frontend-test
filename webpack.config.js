@@ -13,6 +13,11 @@ const js = {
   },
 };
 
+const css = {
+  test: /\.scss$/i,
+  use: ['style-loader', 'css-loader'],
+};
+
 const serverConfig = {
   mode: 'development',
   target: 'node',
@@ -24,7 +29,7 @@ const serverConfig = {
     'index.js': path.resolve(__dirname, 'src/index.js'),
   },
   module: {
-    rules: [js],
+    rules: [js, css],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -39,7 +44,7 @@ const clientConfig = {
     'index.js': path.resolve(__dirname, 'src/public/index.js'),
   },
   module: {
-    rules: [js],
+    rules: [js, css],
   },
   optimization: {
     splitChunks: {
