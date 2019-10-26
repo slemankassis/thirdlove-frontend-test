@@ -13,6 +13,11 @@ const js = {
   },
 };
 
+const css = {
+  test: /\.scss$/,
+  use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+};
+
 const serverConfig = {
   mode: 'development',
   target: 'node',
@@ -24,7 +29,13 @@ const serverConfig = {
     'index.js': path.resolve(__dirname, 'src/index.js'),
   },
   module: {
-    rules: [js],
+    rules: [
+      js,
+      {
+        test: /\.scss$/,
+        use: ['css-loader', 'postcss-loader', 'sass-loader'],
+      },
+    ],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -39,7 +50,10 @@ const clientConfig = {
     'index.js': path.resolve(__dirname, 'src/public/index.js'),
   },
   module: {
-    rules: [js],
+    rules: [
+      js,
+      css,
+    ],
   },
   optimization: {
     splitChunks: {
