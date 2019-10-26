@@ -1,5 +1,6 @@
 const React = require('react');
 const Carousel = require('./../Carousel');
+const VariantsSelectors = require('./../VariantsSelectors');
 
 const transformImagesData = (images) => {
   const transformImages = [];
@@ -9,17 +10,20 @@ const transformImagesData = (images) => {
       original: `https://${image.src600}`,
     });
   });
-  console.log(transformImages);
-
   return transformImages;
 };
 
 class ProductView extends React.Component {
   render() {
-    const transformedImagesData = transformImagesData(this.props.product.images);
+    const { images, variants } = this.props.product;
+
+    const transformedImagesData = transformImagesData(images);
 
     return (
-      <Carousel images={transformedImagesData} />
+      <React.Fragment>
+        <Carousel images={transformedImagesData} />
+        <VariantsSelectors variants={variants} />
+      </React.Fragment>
     );
   }
 }

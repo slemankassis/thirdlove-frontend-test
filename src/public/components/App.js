@@ -1,5 +1,5 @@
 const React = require('react');
-const { useFetch } = require('../../hooks');
+const { useFetch } = require('./../../hooks');
 const ProductView = require('./ProductView');
 
 const App = ({ pageTitle }) => {

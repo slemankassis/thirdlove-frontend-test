@@ -28,6 +28,7 @@ module.exports = {
     'react/prefer-stateless-function': 0,
     "react/forbid-prop-types": 0,
     "react/destructuring-assignment": 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "react/jsx-fragments": 0
   },
 };
