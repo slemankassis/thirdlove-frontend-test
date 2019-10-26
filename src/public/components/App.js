@@ -1,5 +1,6 @@
 const React = require('react');
 const { useFetch } = require('../../hooks');
+const ProductView = require('./ProductView');
 
 // eslint-disable-next-line react/prop-types
 const App = ({ pageTitle }) => {
@@ -12,9 +13,7 @@ const App = ({ pageTitle }) => {
       {loading ? (
         `Loading... ${pageTitle}`
       ) : (
-        <ul>
-          {JSON.stringify(data)}
-        </ul>
+        <ProductView product={data.product} />
       )}
     </div>
   );
