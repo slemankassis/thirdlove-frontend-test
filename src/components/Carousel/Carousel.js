@@ -1,7 +1,7 @@
 import React from 'react';
 import ImageGallery from 'react-image-gallery';
 
-import './style_carousel.scss';
+import './carousel.scss';
 
 class Carousel extends React.Component {
   render() {
