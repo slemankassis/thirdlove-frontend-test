@@ -1,2 +1,3 @@
+import Swatches from './Swatches';
 
-module.exports = require('./Swatches');
+export default Swatches;

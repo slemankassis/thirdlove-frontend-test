@@ -1,1 +1,3 @@
-module.exports = require('./VariantsSelectors');
+import VariantsSelectors from './VariantsSelectors';
+
+export default VariantsSelectors;

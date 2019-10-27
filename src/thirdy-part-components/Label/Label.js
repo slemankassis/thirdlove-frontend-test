@@ -1,5 +1,4 @@
-const React = require('react');
-
+import React from 'react';
 
 class Label extends React.Component {
   render() {
@@ -9,4 +8,4 @@ class Label extends React.Component {
   }
 }
 
-module.exports = Label;
+export default Label;

@@ -1,5 +1,4 @@
-const React = require('react');
-
+import React from 'react';
 
 class RoundPicker extends React.Component {
   render() {
@@ -9,4 +8,4 @@ class RoundPicker extends React.Component {
   }
 }
 
-module.exports = RoundPicker;
+export default RoundPicker;

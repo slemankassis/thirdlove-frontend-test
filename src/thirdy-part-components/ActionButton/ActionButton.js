@@ -1,5 +1,4 @@
-const React = require('react');
-
+import React from 'react';
 
 class ActionButton extends React.Component {
   render() {
@@ -9,4 +8,4 @@ class ActionButton extends React.Component {
   }
 }
 
-module.exports = ActionButton;
+export default ActionButton;

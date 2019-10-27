@@ -1,5 +1,5 @@
-const React = require('react');
-const RoundSelector = require('./../../thirdy-part-components/RoundPicker');
+import React from 'react';
+import RoundSelector from '../../thirdy-part-components/RoundPicker';
 
 class Swatches extends React.Component {
   render() {
@@ -11,4 +11,4 @@ class Swatches extends React.Component {
   }
 }
 
-module.exports = Swatches;
+export default Swatches;

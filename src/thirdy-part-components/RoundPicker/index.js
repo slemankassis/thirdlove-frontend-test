@@ -1,1 +1,3 @@
-module.exports = require('./RoundPicker');
+import RoundPicker from './RoundPicker';
+
+export default RoundPicker;

@@ -1,1 +1,3 @@
-module.exports = require('./ActionButton');
+import ActionButton from './ActionButton';
+
+export default ActionButton;

@@ -1,5 +1,4 @@
-const React = require('react');
-
+import React from 'react';
 
 class Dropdown extends React.Component {
   render() {
@@ -9,4 +8,4 @@ class Dropdown extends React.Component {
   }
 }
 
-module.exports = Dropdown;
+export default Dropdown;
