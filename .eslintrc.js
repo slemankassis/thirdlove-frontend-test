@@ -29,6 +29,6 @@ module.exports = {
     "react/forbid-prop-types": 0,
     "react/destructuring-assignment": 0,
     "react/prop-types": 0,
-    "react-hooks/exhaustive-deps": 0
+    "react/jsx-fragments": 0
   },
 };
