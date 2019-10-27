@@ -1,5 +1,7 @@
 import React from 'react';
-import Swatches from './../Swatches';
+import Label from '../../../../thirdy-part-components/Label';
+import Swatches from '../Swatches';
+import SizesSelectors from '../SizesSelectors';
 
 class Variants extends React.Component {
   constructor(props) {
@@ -30,7 +32,12 @@ class Variants extends React.Component {
 
   render() {
     return (
-      <Swatches data={this.state.colors} />
+      <div>
+        <Label text="COLOR" value="__selected__" />
+        <Swatches colors={this.state.colors} />
+        <Label text="STOCK" value="__selected__" />
+        <SizesSelectors sizes={this.state.sizes} />
+      </div>
     );
   }
 }

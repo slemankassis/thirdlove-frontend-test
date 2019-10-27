@@ -1,6 +1,6 @@
 import React from 'react';
-import Carousel from '../../components/Carousel';
-import VariantsSelectors from '../../components/VariantsSelectors';
+import Carousel from './components/Carousel';
+import VariantsSelectors from './components/VariantsSelectors';
 
 const transformImagesData = (images) => {
   const transformImages = [];
