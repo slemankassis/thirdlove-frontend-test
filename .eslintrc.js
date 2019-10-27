@@ -1,7 +1,6 @@
 module.exports = {
   env: {
     browser: true,
-    commonjs: true,
     es6: true,
   },
   extends: [
@@ -16,6 +15,7 @@ module.exports = {
       jsx: true,
     },
     ecmaVersion: 2018,
+    sourceType: 'module',
   },
   plugins: [
     'react',
@@ -28,6 +28,7 @@ module.exports = {
     'react/prefer-stateless-function': 0,
     "react/forbid-prop-types": 0,
     "react/destructuring-assignment": 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "react-hooks/exhaustive-deps": 0
   },
 };
