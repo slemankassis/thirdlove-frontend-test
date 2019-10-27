@@ -1,5 +1,5 @@
-const React = require('react');
-const Carousel = require('./../Carousel');
+import React from 'react';
+import Carousel from './../../components/Carousel';
 
 const transformImagesData = (images) => {
   const transformImages = [];
@@ -14,7 +14,7 @@ const transformImagesData = (images) => {
   return transformImages;
 };
 
-class ProductView extends React.Component {
+class Product extends React.Component {
   render() {
     const transformedImagesData = transformImagesData(this.props.product.images);
 
@@ -24,4 +24,4 @@ class ProductView extends React.Component {
   }
 }
 
-module.exports = ProductView;
+export default Product;

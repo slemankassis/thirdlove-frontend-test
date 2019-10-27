@@ -1,4 +1,4 @@
-const { useState, useEffect } = require('react');
+import { useState, useEffect } from 'react';
 
 const useFetch = (url) => {
   const [data, setData] = useState([]);
@@ -17,6 +17,7 @@ const useFetch = (url) => {
 
   useEffect(() => {
     fetchUrl();
+    // eslint-disable-next-line
   }, []);
 
   return [
@@ -25,6 +26,4 @@ const useFetch = (url) => {
   ];
 };
 
-module.exports = {
-  useFetch,
-};
+export default { useFetch };
