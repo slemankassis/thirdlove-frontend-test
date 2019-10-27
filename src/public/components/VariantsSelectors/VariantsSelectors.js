@@ -4,7 +4,7 @@ const Swatches = require('./../Swatches');
 class Variants extends React.Component {
   render() {
     return (
-      <Swatches />
+      <Swatches data={this.props.variants} />
     );
   }
 }
