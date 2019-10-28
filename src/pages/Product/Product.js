@@ -3,6 +3,7 @@ import Constants from './Constants';
 import Carousel from './components/Carousel';
 import VariantsSelectors from './components/VariantsSelectors';
 import Description from './components/Description';
+import './Product.scss';
 
 const transformImagesData = (images) => {
   const transformImages = [];
@@ -25,7 +26,7 @@ class Product extends React.Component {
       <React.Fragment>
         <Carousel images={transformedImagesData} />
         <VariantsSelectors variants={variants} />
-        <Description contentHtml={bodyHtml} />
+        <Description contentHtml={bodyHtml} className="product-desciption" />
       </React.Fragment>
     );
   }
