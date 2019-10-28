@@ -30,6 +30,7 @@ module.exports = {
     "react/destructuring-assignment": 0,
     "react/prop-types": 0,
     "react/jsx-fragments": 0,
-    "import/prefer-default-export": 0
+    "import/prefer-default-export": 0,
+    "camelcase": 0
   },
 };

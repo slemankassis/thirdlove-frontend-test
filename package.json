@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "dompurify": "^2.0.7",
     "jsonpath-plus": "^1.1.0",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
