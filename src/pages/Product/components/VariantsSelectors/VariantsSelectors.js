@@ -45,15 +45,19 @@ class Variants extends React.Component {
       ),
       sizes: getSizes(sizes),
     };
+
+    console.log(this.state);
+
   }
 
   render() {
+    const a = this.state.sizes;
     return (
       <div>
         <Label text="COLOR" value="__selected__" />
         <Swatches colors={this.state.colors} />
         <Label text="STOCK" value="__selected__" />
-        <SizesSelectors sizes={this.state.sizes} />
+        <SizesSelectors sizes={a} />
       </div>
     );
   }

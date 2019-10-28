@@ -3,7 +3,13 @@ import React from 'react';
 class Dropdown extends React.Component {
   render() {
     return (
-      1
+      <select>
+        {this.props.values.map((value) => (
+          <option key={value} value={value}>
+            {`${value}`}
+          </option>
+        ))}
+      </select>
     );
   }
 }
