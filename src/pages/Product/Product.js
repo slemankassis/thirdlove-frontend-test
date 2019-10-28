@@ -1,4 +1,5 @@
 import React from 'react';
+import Constants from './Constants';
 import Carousel from './components/Carousel';
 import VariantsSelectors from './components/VariantsSelectors';
 
@@ -6,8 +7,8 @@ const transformImagesData = (images) => {
   const transformImages = [];
   images.forEach((image) => {
     transformImages.push({
-      thumbnail: `https://${image.src100}`,
-      original: `https://${image.src600}`,
+      thumbnail: `https://${image[Constants.IMAGES.THUMBNAIL]}`,
+      original: `https://${image[Constants.IMAGES.ORIGINAL_LARGE]}`,
     });
   });
   return transformImages;
