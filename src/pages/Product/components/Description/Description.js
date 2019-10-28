@@ -1,10 +1,11 @@
 import React from 'react';
+import { sanitizeHtml } from '../../../../utils';
 
 class Description extends React.Component {
   render() {
-    console.log(this.props);
-
-    return this.props.contentHtml;
+    return (
+      sanitizeHtml(this.props.contentHtml, ['meta', 'p', 'ul', 'li', 'span'])
+    );
   }
 }
 
