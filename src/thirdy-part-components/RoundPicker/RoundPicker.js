@@ -3,7 +3,7 @@ import React from 'react';
 class RoundPicker extends React.Component {
   render() {
     return (
-      1
+      <input type="radio" value={this.props.value} />
     );
   }
 }
