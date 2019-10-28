@@ -2,6 +2,7 @@ import React from 'react';
 import Constants from './Constants';
 import Carousel from './components/Carousel';
 import VariantsSelectors from './components/VariantsSelectors';
+import Description from './components/Description';
 
 const transformImagesData = (images) => {
   const transformImages = [];
@@ -16,7 +17,7 @@ const transformImagesData = (images) => {
 
 class Product extends React.Component {
   render() {
-    const { images, variants } = this.props.product;
+    const { images, variants, body_html: bodyHtml } = this.props.product;
 
     const transformedImagesData = transformImagesData(images);
 
@@ -24,6 +25,7 @@ class Product extends React.Component {
       <React.Fragment>
         <Carousel images={transformedImagesData} />
         <VariantsSelectors variants={variants} />
+        <Description contentHtml={bodyHtml} />
       </React.Fragment>
     );
   }
