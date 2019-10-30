@@ -17,9 +17,9 @@ class VariantsContainer extends React.Component {
     this.state = {
       selectedColor: this.props.variants[0].color,
       selectedBand: this.props.variants[0].band,
-      selectedCup: null,
-      bandFilters: [],
-      cupFilters: [],
+      selectedCup: this.props.variants[0].cup,
+      bandFilters: this.getBandFilters(),
+      cupFilters: this.getCupFilters(),
     };
   }
 
@@ -43,10 +43,7 @@ class VariantsContainer extends React.Component {
         bandFilters.add(variant.band);
       }
     });
-    this.setState(() => ({
-      selectedBand: bandFilters[0],
-      bandFilters: [...bandFilters],
-    }));
+    return [...bandFilters];
   }
 
   getCupFilters() {
@@ -58,10 +55,7 @@ class VariantsContainer extends React.Component {
         cupFilters.add(variant.cup);
       }
     });
-    this.setState(() => ({
-      selectedCup: cupFilters[0],
-      cupFilters: [...cupFilters],
-    }));
+    return [...cupFilters];
   }
 
   getBandFiltersFromCup() {
@@ -93,19 +87,18 @@ class VariantsContainer extends React.Component {
   }
 
   onChangeColor(e) {
-    console.log("onChangeColor");
+    console.log('onChangeColor');
 
     this.setState(() => ({
       selectedColor: e.target.value,
     }));
-    console.log(this.state);
 
     this.getBandFilters();
     this.getCupFilters();
   }
 
   onChangeBand(e) {
-    console.log("onChangeBand");
+    console.log('onChangeBand');
 
     this.setState(() => ({
       selectedBand: e.target.value,
@@ -113,7 +106,7 @@ class VariantsContainer extends React.Component {
   }
 
   onChangeCup(e) {
-    console.log("onChangeCup");
+    console.log('onChangeCup');
 
     this.setState(() => ({
       selectedCup: e.target.value,
@@ -127,22 +120,28 @@ class VariantsContainer extends React.Component {
 
   render() {
     console.log(this.state);
+    const {
+      state,
+      onChangeColor,
+      onChangeBand,
+      onChangeCup,
+    } = this;
+    const { bandFilters, cupFilters } = state;
 
     return (
       <div>
         {/* <form onSubmit={() => this.handleSubmit(product = {})}> */}
         <Label text="COLOR" value="__selected__" />
-        {/* Populate swatches with all colors. When the color change it will populate band and cup filters */}
         <Variants
           options={{
             colorFilters: this.getColorFilters(),
-            bandFilters: this.state.bandFilters,
-            cupFilters: this.state.cupFilters,
+            bandFilters,
+            cupFilters,
           }}
           handlersChange={{
-            onChangeColor: this.onChangeColor,
-            onChangeBand: this.onChangeBand,
-            onChangeCup: this.onChangeCup,
+            onChangeColor,
+            onChangeBand,
+            onChangeCup,
           }}
           getBandFilters={this.getBandFilters}
         />
