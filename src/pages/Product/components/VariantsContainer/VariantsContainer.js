@@ -17,9 +17,9 @@ class VariantsContainer extends React.Component {
     this.state = {
       selectedColor: this.props.variants[0].color,
       selectedBand: this.props.variants[0].band,
-      selectedCup: this.props.variants[0].cup,
-      bandFilters: this.getBandFilters(),
-      cupFilters: this.getCupFilters(),
+      selectedCup: null,
+      bandFilters: [],
+      cupFilters: [],
     };
   }
 
@@ -43,7 +43,10 @@ class VariantsContainer extends React.Component {
         bandFilters.add(variant.band);
       }
     });
-    return [...bandFilters];
+    this.setState(() => ({
+      selectedBand: bandFilters[0],
+      bandFilters: [...bandFilters],
+    }));
   }
 
   getCupFilters() {
@@ -55,7 +58,10 @@ class VariantsContainer extends React.Component {
         cupFilters.add(variant.cup);
       }
     });
-    return [...cupFilters];
+    this.setState(() => ({
+      selectedCup: cupFilters[0],
+      cupFilters: [...cupFilters],
+    }));
   }
 
   getBandFiltersFromCup() {
