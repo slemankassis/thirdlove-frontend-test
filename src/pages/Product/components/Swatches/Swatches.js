@@ -1,9 +1,11 @@
 import React from 'react';
-import RoundPicker from '../../../../thirdy-part-components/RoundPicker';
 
-const Swatches = ({ options, onChange }) => (
+const Swatches = ({ options, onClick }) => (
   options.map((value) => (
-    <RoundPicker key={value} value={value} onClick={() => onChange(value)} name="swatches" />
+    <div key={value}>
+      <input type="radio" id={value} value={value} onClick={() => onClick(value)} name="swatches" />
+      <label htmlFor={value}>{value}</label>
+    </div>
   ))
 );
 

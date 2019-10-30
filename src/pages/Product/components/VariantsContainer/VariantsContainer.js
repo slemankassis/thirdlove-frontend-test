@@ -7,25 +7,25 @@ class VariantsContainer extends React.Component {
     super(props);
     this.getColorFilters = this.getColorFilters.bind(this);
     this.getBandFilters = this.getBandFilters.bind(this);
-    this.getCupFilters = this.getCupFilters.bind(this);
+    // this.getCupFilters = this.getCupFilters.bind(this);
     this.getBandFiltersFromCup = this.getBandFiltersFromCup.bind(this);
-    this.getCupFiltersFromBand = this.getCupFiltersFromBand.bind(this);
+    // this.getCupFiltersFromBand = this.getCupFiltersFromBand.bind(this);
     this.onChangeColor = this.onChangeColor.bind(this);
     this.onChangeBand = this.onChangeBand.bind(this);
-    this.onChangeCup = this.onChangeCup.bind(this);
+    // this.onChangeCup = this.onChangeCup.bind(this);
 
     this.state = {
       selectedColor: this.props.variants[0].color,
       selectedBand: this.props.variants[0].band,
-      selectedCup: null,
+      // selectedCup: null,
       bandFilters: [],
-      cupFilters: [],
+      // cupFilters: [],
     };
   }
 
   componentDidMount() {
     this.getBandFilters();
-    this.getCupFilters();
+    // this.getCupFilters();
   }
 
   getColorFilters() {
@@ -92,15 +92,15 @@ class VariantsContainer extends React.Component {
     }));
   }
 
-  onChangeColor(e) {
+  onChangeColor(value) {
     console.log('onChangeColor');
 
     this.setState(() => ({
-      selectedColor: e.target.value,
+      selectedColor: value,
     }));
 
     this.getBandFilters();
-    this.getCupFilters();
+    // this.getCupFilters();
   }
 
   onChangeBand(e) {
