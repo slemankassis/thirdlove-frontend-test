@@ -1,14 +1,10 @@
 import React from 'react';
 import RoundPicker from '../../../../thirdy-part-components/RoundPicker';
 
-class Swatches extends React.Component {
-  render() {
-    const { colors, handleChange } = this.props;
-
-    return (
-      colors.map(({ value }) => <RoundPicker key={value} value={value} onChange={handleChange} name="color" />)
-    );
-  }
-}
+const Swatches = ({ options, onChange }) => (
+  options.map((value) => (
+    <RoundPicker key={value} value={value} onClick={() => onChange(value)} name="swatches" />
+  ))
+);
 
 export default Swatches;

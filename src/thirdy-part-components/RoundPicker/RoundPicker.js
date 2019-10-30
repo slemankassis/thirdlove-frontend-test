@@ -1,12 +1,10 @@
 import React from 'react';
 
-class RoundPicker extends React.Component {
-  render() {
-    const { value, handleChange, name } = this.props;
-    return (
-      <input type="radio" value={value} onChange={handleChange} name={name} />
-    );
-  }
-}
+const RoundPicker = ({ value, handleChange, name }) => (
+  <div>
+    <input type="radio" value={value} onClick={handleChange} name={name} />
+    <label>{value}</label>
+  </div>
+);
 
 export default RoundPicker;

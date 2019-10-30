@@ -1,18 +1,13 @@
 import React from 'react';
 
-class Dropdown extends React.Component {
-  render() {
-    const { options, handleChange } = this.props;
-    return (
-      <select>
-        {options.map(({ value }) => (
-          <option key={value} value={value} onChange={handleChange}>
-            {`${value}`}
-          </option>
-        ))}
-      </select>
-    );
-  }
-}
+const Dropdown = ({ options, handleChange }) => (
+  <select onChange={handleChange}>
+    {options.map((value) => (
+      <option key={value} value={value}>
+        {`${value}`}
+      </option>
+    ))}
+  </select>
+);
 
 export default Dropdown;

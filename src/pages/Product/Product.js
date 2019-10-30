@@ -10,7 +10,7 @@ import {
   STOCK,
 } from './Constants';
 import Carousel from './components/Carousel';
-import VariantsSelectors from './components/VariantsSelectors';
+import VariantsContainer from './components/VariantsContainer';
 import Description from './components/Description';
 import './Product.scss';
 
@@ -31,27 +31,19 @@ const transformVariants = (variants) => (
       stock: variant[STOCK],
       color: variant[COLOR_VARIANTS],
       [SIZE_VARIANTS]: variant[SIZE_VARIANTS],
-      bandSize: `${variant[SIZE_VARIANTS][0]}${variant[SIZE_VARIANTS][1]}`,
-      cupSize: variant[SIZE_VARIANTS].slice(QTY_CHARS_FOR_BAND_SIZES),
+      band: `${variant[SIZE_VARIANTS][0]}${variant[SIZE_VARIANTS][1]}`,
+      cup: variant[SIZE_VARIANTS].slice(QTY_CHARS_FOR_BAND_SIZES),
     })
     : transformedVariants
   ), [])
 );
 
-class Product extends React.Component {
-  render() {
-    const { images, variants, body_html: bodyHtml } = this.props.product;
-    const transformedImagesData = transformImages(images);
-    const transformedVariantsData = transformVariants(variants);
-
-    return (
-      <React.Fragment>
-        <Carousel images={transformedImagesData} />
-        <VariantsSelectors variants={transformedVariantsData} />
-        <Description contentHtml={bodyHtml} className="product-description" />
-      </React.Fragment>
-    );
-  }
-}
+const Product = ({ product: { images, variants, body_html: bodyHtml } }) => (
+  <React.Fragment>
+    <Carousel images={transformImages(images)} />
+    <VariantsContainer variants={transformVariants(variants)} />
+    <Description contentHtml={bodyHtml} className="product-description" />
+  </React.Fragment>
+);
 
 export default Product;
