@@ -2,14 +2,23 @@ import React from 'react';
 import Label from '../../../../thirdy-part-components/Label';
 import Variants from '../Variants';
 
+const transformFilters = (filters) => (
+  filters.reduce((transformedFilters, filter) => (
+    transformedFilters.concat({
+      value: filter,
+      label: filter,
+    })
+  ), [])
+);
+
 class VariantsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.getColorFilters = this.getColorFilters.bind(this);
     this.getBandFilters = this.getBandFilters.bind(this);
-    // this.getCupFilters = this.getCupFilters.bind(this);
+    this.getCupFilters = this.getCupFilters.bind(this);
     this.getBandFiltersFromCup = this.getBandFiltersFromCup.bind(this);
-    // this.getCupFiltersFromBand = this.getCupFiltersFromBand.bind(this);
+    this.getCupFiltersFromBand = this.getCupFiltersFromBand.bind(this);
     this.onChangeColor = this.onChangeColor.bind(this);
     this.onChangeBand = this.onChangeBand.bind(this);
     // this.onChangeCup = this.onChangeCup.bind(this);
@@ -17,15 +26,15 @@ class VariantsContainer extends React.Component {
     this.state = {
       selectedColor: this.props.variants[0].color,
       selectedBand: this.props.variants[0].band,
-      // selectedCup: null,
+      selectedCup: null,
       bandFilters: [],
-      // cupFilters: [],
+      cupFilters: [],
     };
   }
 
   componentDidMount() {
     this.getBandFilters();
-    // this.getCupFilters();
+    this.getCupFilters();
   }
 
   getColorFilters() {
@@ -100,22 +109,22 @@ class VariantsContainer extends React.Component {
     }));
 
     this.getBandFilters();
-    // this.getCupFilters();
+    this.getCupFilters();
   }
 
-  onChangeBand(e) {
+  onChangeBand(value) {
     console.log('onChangeBand');
 
     this.setState(() => ({
-      selectedBand: e.target.value,
+      selectedBand: value,
     }));
   }
 
-  onChangeCup(e) {
+  onChangeCup(value) {
     console.log('onChangeCup');
 
     this.setState(() => ({
-      selectedCup: e.target.value,
+      selectedCup: value,
     }));
   }
 
@@ -141,8 +150,8 @@ class VariantsContainer extends React.Component {
         <Variants
           options={{
             colorFilters: this.getColorFilters(),
-            bandFilters,
-            cupFilters,
+            bandFilters: transformFilters(bandFilters),
+            cupFilters: transformFilters(cupFilters),
           }}
           handlersChange={{
             onChangeColor,

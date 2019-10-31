@@ -7,9 +7,9 @@ const Variants = ({
   handlersChange: { onChangeColor, onChangeBand, onChangeCup },
 }) => (
   <div>
-    <Swatches options={colorFilters} onClick={onChangeColor} />
-    <Dropdown options={bandFilters} onChange={onChangeBand} />
-    {/* <Dropdown options={cupFilters} onChange={onChangeCup} /> */}
+    <Swatches options={colorFilters} onChange={onChangeColor} />
+    <Dropdown options={bandFilters} handleChange={onChangeBand} label="BAND SIZE" name="band-filters" />
+    <Dropdown options={cupFilters} handleChange={onChangeCup} label="CUP SIZE" name="cup-filters" />
   </div>
 );
 
