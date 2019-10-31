@@ -10,7 +10,7 @@ import {
   STOCK,
 } from './Constants';
 import Carousel from './components/Carousel';
-import VariantsContainer from './components/VariantsContainer';
+import ColorVariantsContainer from './components/ColorVariantsContainer';
 import Description from './components/Description';
 import './Product.scss';
 
@@ -41,7 +41,7 @@ const transformVariants = (variants) => (
 const Product = ({ product: { images, variants, body_html: bodyHtml } }) => (
   <React.Fragment>
     <Carousel images={transformImages(images)} />
-    <VariantsContainer variants={transformVariants(variants)} />
+    <ColorVariantsContainer variants={transformVariants(variants)} />
     <Description contentHtml={bodyHtml} className="product-description" />
   </React.Fragment>
 );

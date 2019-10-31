@@ -5,7 +5,7 @@ class Dropdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedOption: this.props.options[0],
+      selectedOption: this.props.selected,
     };
   }
 

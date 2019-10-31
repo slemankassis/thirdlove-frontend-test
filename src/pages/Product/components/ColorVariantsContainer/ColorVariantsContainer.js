@@ -1,6 +1,8 @@
 import React from 'react';
 import Label from '../../../../thirdy-part-components/Label';
-import Variants from '../Variants';
+import CupVariantsContainer from '../CupVariantsContainer';
+import BandVariantsContainer from '../BandVariantsContainer';
+import Swatches from '../Swatches';
 
 const transformFilters = (filters) => (
   filters.reduce((transformedFilters, filter) => (
@@ -11,30 +13,23 @@ const transformFilters = (filters) => (
   ), [])
 );
 
-class VariantsContainer extends React.Component {
+class ColorVariantsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.getColorFilters = this.getColorFilters.bind(this);
     this.getBandFilters = this.getBandFilters.bind(this);
     this.getCupFilters = this.getCupFilters.bind(this);
-    this.getBandFiltersFromCup = this.getBandFiltersFromCup.bind(this);
-    this.getCupFiltersFromBand = this.getCupFiltersFromBand.bind(this);
     this.onChangeColor = this.onChangeColor.bind(this);
     this.onChangeBand = this.onChangeBand.bind(this);
-    // this.onChangeCup = this.onChangeCup.bind(this);
+    this.onChangeCup = this.onChangeCup.bind(this);
 
     this.state = {
       selectedColor: this.props.variants[0].color,
       selectedBand: this.props.variants[0].band,
-      selectedCup: null,
+      selectedCup: this.props.variants[0].cup,
       bandFilters: [],
       cupFilters: [],
     };
-  }
-
-  componentDidMount() {
-    this.getBandFilters();
-    this.getCupFilters();
   }
 
   getColorFilters() {
@@ -53,7 +48,6 @@ class VariantsContainer extends React.Component {
       }
     });
     this.setState(() => ({
-      selectedBand: bandFilters[0],
       bandFilters: [...bandFilters],
     }));
   }
@@ -68,7 +62,6 @@ class VariantsContainer extends React.Component {
       }
     });
     this.setState(() => ({
-      selectedCup: cupFilters[0],
       cupFilters: [...cupFilters],
     }));
   }
@@ -107,9 +100,6 @@ class VariantsContainer extends React.Component {
     this.setState(() => ({
       selectedColor: value,
     }));
-
-    this.getBandFilters();
-    this.getCupFilters();
   }
 
   onChangeBand(value) {
@@ -128,37 +118,47 @@ class VariantsContainer extends React.Component {
     }));
   }
 
-  // handleSubmit({ product }) {
-  //   const { id, band, cup } = product;
-  //   alert(`Added a ${id} - ${band}${cup} to the cart`);
-  // }
-
   render() {
     console.log(this.state);
-    const {
-      state,
-      onChangeColor,
-      onChangeBand,
-      onChangeCup,
-    } = this;
-    const { bandFilters, cupFilters } = state;
+
+    const isValidProduct = () => this.props.variants.filter((variant) => {
+      const {
+        selectedColor,
+        selectedBand,
+        selectedCup,
+      } = this.state;
+      return (
+        (variant.color === selectedColor)
+          && (variant.band === selectedBand)
+          && (variant.cup === selectedCup)
+      );
+    });
+
+    console.log(!!isValidProduct().length);
 
     return (
       <div>
         {/* <form onSubmit={() => this.handleSubmit(product = {})}> */}
         <Label text="COLOR" value="__selected__" />
-        <Variants
-          options={{
-            colorFilters: this.getColorFilters(),
-            bandFilters: transformFilters(bandFilters),
-            cupFilters: transformFilters(cupFilters),
-          }}
-          handlersChange={{
-            onChangeColor,
-            onChangeBand,
-            onChangeCup,
-          }}
+        <Swatches
+          options={this.getColorFilters()}
+          onChange={this.onChangeColor}
+        />
+        <BandVariantsContainer
+          selectedColor={this.state.selectedColor}
+          selectedBand={this.state.selectedBand}
+          selectedCup={this.state.selectedCup}
+          options={transformFilters(this.state.bandFilters)}
+          onChange={this.onChangeBand}
           getBandFilters={this.getBandFilters}
+        />
+        <CupVariantsContainer
+          selectedColor={this.state.selectedColor}
+          selectedBand={this.state.selectedBand}
+          selectedCup={this.state.selectedCup}
+          options={transformFilters(this.state.cupFilters)}
+          onChange={this.onChangeCup}
+          getCupFilters={this.getCupFilters}
         />
         <Label text="STOCK" value="__selected__" />
         <input type="submit" value="Submit" />
@@ -168,4 +168,4 @@ class VariantsContainer extends React.Component {
   }
 }
 
-export default VariantsContainer;
+export default ColorVariantsContainer;
