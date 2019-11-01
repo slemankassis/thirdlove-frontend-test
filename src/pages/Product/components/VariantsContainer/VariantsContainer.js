@@ -1,11 +1,10 @@
 import React from 'react';
-import Label from '../../../../thirdy-part-components/Label';
-import CupVariantsContainer from '../CupVariantsContainer';
-import BandVariantsContainer from '../BandVariantsContainer';
 import Swatches from '../../../../thirdy-part-components/Swatches';
 import { removeDuplicates } from '../../../../utils';
+import CupVariantsContainer from '../CupVariantsContainer';
+import BandVariantsContainer from '../BandVariantsContainer';
 
-const isValidProduct = (variants, selectedColor, selectedBand, selectedCup) => (
+const selectedVariant = (variants, selectedColor, selectedBand, selectedCup) => (
   variants.filter((variant) => (
     (variant.color === selectedColor)
     && (variant.band === selectedBand)
@@ -13,7 +12,7 @@ const isValidProduct = (variants, selectedColor, selectedBand, selectedCup) => (
   ))
 );
 
-class ColorVariantsContainer extends React.Component {
+class VariantsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.getColorFilters = this.getColorFilters.bind(this);
@@ -104,30 +103,25 @@ class ColorVariantsContainer extends React.Component {
 
     const { selectedColor, selectedBand, selectedCup } = this.state;
 
-    const checkIsValidProduct = isValidProduct(
+    const product = selectedVariant(
       this.props.variants,
       selectedColor,
       selectedBand,
       selectedCup,
     );
 
-    console.log(!!checkIsValidProduct.length);
-
-    if (!checkIsValidProduct.length) {
-      console.log(1111);
-
+    if (product.length) {
+      this.setState({
+        selectedVariant: product[0].id,
+      });
+      console.log(product[0]);
+    } else {
       this.getBandFilters();
       this.getCupFilters();
-      // this.onChangeBand(this.state.cupFilters[1]);
-      // this.onChangeCup(this.state.bandFilters[1]);
-      // this.onChangeBand(this.state.bandFilters[0]);
-      // this.onChangeCup(this.state.cupFilters[0]);
     }
 
     return (
       <div>
-        {/* <form onSubmit={() => this.handleSubmit(product = {})}> */}
-        <Label text="COLOR" value="__selected__" />
         <Swatches
           selected={this.state.selectedColor}
           options={this.getColorFilters()}
@@ -149,12 +143,9 @@ class ColorVariantsContainer extends React.Component {
           getCupFilters={this.getCupFilters}
           updateSelectedField={this.updateSelectedField}
         />
-        <Label text="STOCK" value="__selected__" />
-        <input type="submit" value="Submit" />
-        {/* </form> */}
       </div>
     );
   }
 }
 
-export default ColorVariantsContainer;
+export default VariantsContainer;
