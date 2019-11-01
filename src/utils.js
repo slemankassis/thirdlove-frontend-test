@@ -1,11 +1,6 @@
 import DOMPurify from 'dompurify';
 import React from 'react';
 
-const removeDuplicatesArray = (array) => {
-  const uniqueSet = new Set(array);
-  return [...uniqueSet];
-};
-
 const sanitizeHtml = (html, allowedTags) => {
   const params = allowedTags ? { ALLOWED_TAGS: allowedTags } : {};
   return (
@@ -13,4 +8,6 @@ const sanitizeHtml = (html, allowedTags) => {
   );
 };
 
-export { removeDuplicatesArray, sanitizeHtml };
+const removeDuplicates = (array) => [...new Set(array)];
+
+export { sanitizeHtml, removeDuplicates };
