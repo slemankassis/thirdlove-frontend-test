@@ -78,8 +78,6 @@ class ColorVariantsContainer extends React.Component {
   }
 
   onChangeColor(value) {
-    // this.getCupFilters();
-    // this.getBandFilters();
     this.setState(() => ({
       selectedColor: value,
     }));
@@ -105,7 +103,13 @@ class ColorVariantsContainer extends React.Component {
     console.log(this.state);
 
     const { selectedColor, selectedBand, selectedCup } = this.state;
-    const checkIsValidProduct = isValidProduct(this.props.variants, selectedColor, selectedBand, selectedCup);
+
+    const checkIsValidProduct = isValidProduct(
+      this.props.variants,
+      selectedColor,
+      selectedBand,
+      selectedCup,
+    );
 
     console.log(!!checkIsValidProduct.length);
 
@@ -114,6 +118,8 @@ class ColorVariantsContainer extends React.Component {
 
       this.getBandFilters();
       this.getCupFilters();
+      // this.onChangeBand(this.state.cupFilters[1]);
+      // this.onChangeCup(this.state.bandFilters[1]);
       // this.onChangeBand(this.state.bandFilters[0]);
       // this.onChangeCup(this.state.cupFilters[0]);
     }
