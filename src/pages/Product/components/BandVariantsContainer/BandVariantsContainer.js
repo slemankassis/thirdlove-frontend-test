@@ -5,23 +5,29 @@ class BandVariantsContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      selectedBand: this.props.selectedBand,
-    };
+
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.selectedColor !== this.props.selectedColor) {
-      this.props.getBandFilters();
-    }
+  componentDidMount() {
+    this.props.getBandFilters();
   }
+
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.selectedColor !== this.props.selectedColor
+  //   ) {
+  //     this.props.getBandFilters();
+  //     // if (!this.props.options && this.props.options.includes({ value: this.props.selectedBand, label: this.props.selectedBand })) {
+  //     //   this.props.onChange(this.props.options[0].value);
+  //     // }
+  //   }
+  // }
 
   render() {
     return (
       <Dropdown
-        selected={this.props.selectedBand}
+        selected={{ value: this.props.selectedBand, label: this.props.selectedBand }}
         options={this.props.options}
-        handleChange={this.props.onChangeBand}
+        onChange={this.props.onChange}
         label="BAND SIZE"
         name="band-filters"
       />

@@ -1,24 +1,43 @@
 import React from 'react';
 import Select from 'react-select';
 
+const transformFilters = (filters) => (
+  filters.reduce((transformedFilters, filter) => (
+    transformedFilters.concat({
+      value: filter,
+      label: filter,
+    })
+  ), [])
+);
+
 class Dropdown extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+
     this.state = {
-      selectedOption: this.props.selected,
+      selected: this.props.selected,
     };
   }
 
+  handleChange(value) {
+    this.setState(() => ({
+      selected: value,
+    }));
+    this.props.onChange(value);
+  }
+
   render() {
-    const { options, handleChange, label } = this.props;
+    const { options, label } = this.props;
 
     return (
       <label>
         {label}
         <Select
-          value={this.state.selectedOption}
-          onChange={handleChange}
-          options={options}
+          value={this.state.selected}
+          onChange={this.handleChange}
+          options={transformFilters(options)}
         />
       </label>
     );

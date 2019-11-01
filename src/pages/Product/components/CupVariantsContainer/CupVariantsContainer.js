@@ -1,35 +1,36 @@
 import React from 'react';
 import Dropdown from '../../../../thirdy-part-components/Dropdown';
 
-
 class CupVariantsContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      selectedCup: this.props.selectedCup,
-    };
   }
 
-  componentDidUpdate(prevProps) {
-    console.log(prevProps.selectedColor);
-    console.log(this.props.selectedColor);
-    console.log(prevProps.selectedBand);
-    console.log(this.props.selectedBand);
-
-    if (prevProps.selectedColor !== this.props.selectedColor
-      || prevProps.selectedBand !== this.props.selectedBand
-    ) {
-      this.props.getCupFilters();
-    }
+  componentDidMount() {
+    this.props.getCupFilters();
   }
+
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.selectedColor !== this.props.selectedColor
+  //   ) {
+  //     this.props.getCupFilters();
+  //   } else if (prevProps.selectedCup !== this.props.selectedCup) {
+  //     this.props.onChange(this.props.options[0]);
+  //   }
+  //     // if (!this.props.options && this.props.options.includes({ value: this.props.selectedCup, label: this.props.selectedCup })) {
+  //     //   this.props.onChange(this.props.options[0].value);
+  //     // }
+  // }
 
   render() {
+    console.log(this.props.selectedCup);
+
     return (
       <Dropdown
-        selected={this.props.selectedCup}
+        selected={{ value: this.props.selectedCup, label: this.props.selectedCup }}
         options={this.props.options}
-        handleChange={this.props.onChangeCup}
+        onChange={this.props.onChange}
         label="CUP SIZE"
         name="cup-filters"
       />

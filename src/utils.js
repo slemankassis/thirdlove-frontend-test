@@ -8,4 +8,6 @@ const sanitizeHtml = (html, allowedTags) => {
   );
 };
 
-export { sanitizeHtml };
+const removeDuplicates = (array) => [...new Set(array)];
+
+export { sanitizeHtml, removeDuplicates };

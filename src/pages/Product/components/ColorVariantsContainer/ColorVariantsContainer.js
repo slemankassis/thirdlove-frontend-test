@@ -2,15 +2,15 @@ import React from 'react';
 import Label from '../../../../thirdy-part-components/Label';
 import CupVariantsContainer from '../CupVariantsContainer';
 import BandVariantsContainer from '../BandVariantsContainer';
-import Swatches from '../Swatches';
+import Swatches from '../../../../thirdy-part-components/Swatches';
+import { removeDuplicates } from '../../../../utils';
 
-const transformFilters = (filters) => (
-  filters.reduce((transformedFilters, filter) => (
-    transformedFilters.concat({
-      value: filter,
-      label: filter,
-    })
-  ), [])
+const isValidProduct = (variants, selectedColor, selectedBand, selectedCup) => (
+  variants.filter((variant) => (
+    (variant.color === selectedColor)
+    && (variant.band === selectedBand)
+    && (variant.cup === selectedCup)
+  ))
 );
 
 class ColorVariantsContainer extends React.Component {
@@ -27,8 +27,8 @@ class ColorVariantsContainer extends React.Component {
       selectedColor: this.props.variants[0].color,
       selectedBand: this.props.variants[0].band,
       selectedCup: this.props.variants[0].cup,
-      bandFilters: [],
-      cupFilters: [],
+      bandFilters: [this.props.variants[0].band],
+      cupFilters: [this.props.variants[0].cup],
     };
   }
 
@@ -41,62 +41,34 @@ class ColorVariantsContainer extends React.Component {
   }
 
   getBandFilters() {
-    const bandFilters = new Set();
+    const bandFilters = [];
     this.props.variants.forEach((variant) => {
       if (variant.color === this.state.selectedColor) {
-        bandFilters.add(variant.band);
+        bandFilters.push(variant.band);
       }
     });
+    const bandFiltersArray = removeDuplicates(bandFilters);
     this.setState(() => ({
-      bandFilters: [...bandFilters],
+      bandFilters: bandFiltersArray,
+      selectedBand: bandFiltersArray[0],
     }));
   }
 
   getCupFilters() {
-    const cupFilters = new Set();
+    const cupFilters = [];
     this.props.variants.forEach((variant) => {
-      if (variant.color === this.state.selectedColor
-        && variant.band === this.state.selectedBand
-      ) {
-        cupFilters.add(variant.cup);
+      if (variant.color === this.state.selectedColor) {
+        cupFilters.push(variant.cup);
       }
     });
+    const cupFiltersArray = removeDuplicates(cupFilters);
     this.setState(() => ({
-      cupFilters: [...cupFilters],
-    }));
-  }
-
-  getBandFiltersFromCup() {
-    const bandFilters = new Set();
-    this.props.variants.forEach((variant) => {
-      if (variant.color === this.state.selectedColor
-        && variant.cup === this.state.selectedCup
-      ) {
-        bandFilters.add(variant.band);
-      }
-    });
-    this.setState(() => ({
-      bandFilters: [...bandFilters],
-    }));
-  }
-
-  getCupFiltersFromBand() {
-    const cupFilters = new Set();
-    this.props.variants.forEach((variant) => {
-      if (variant.color === this.state.selectedColor
-        && variant.band === this.state.selectedBand
-      ) {
-        cupFilters.add(variant.cup);
-      }
-    });
-    this.setState(() => ({
-      cupFilters: [...cupFilters],
+      cupFilters: cupFiltersArray,
+      selectedCup: cupFiltersArray[0],
     }));
   }
 
   onChangeColor(value) {
-    console.log('onChangeColor');
-
     this.setState(() => ({
       selectedColor: value,
     }));
@@ -106,7 +78,7 @@ class ColorVariantsContainer extends React.Component {
     console.log('onChangeBand');
 
     this.setState(() => ({
-      selectedBand: value,
+      selectedBand: value.value,
     }));
   }
 
@@ -114,51 +86,49 @@ class ColorVariantsContainer extends React.Component {
     console.log('onChangeCup');
 
     this.setState(() => ({
-      selectedCup: value,
+      selectedCup: value.value,
     }));
   }
 
   render() {
     console.log(this.state);
 
-    const isValidProduct = () => this.props.variants.filter((variant) => {
-      const {
-        selectedColor,
-        selectedBand,
-        selectedCup,
-      } = this.state;
-      return (
-        (variant.color === selectedColor)
-          && (variant.band === selectedBand)
-          && (variant.cup === selectedCup)
-      );
-    });
+    const { selectedColor, selectedBand, selectedCup } = this.state;
+    const checkIsValidProduct = isValidProduct(this.props.variants, selectedColor, selectedBand, selectedCup);
 
-    console.log(!!isValidProduct().length);
+    console.log(!!checkIsValidProduct.length);
+
+    if (!checkIsValidProduct.length) {
+      this.getBandFilters();
+      this.getCupFilters();
+      // this.onChangeBand(this.state.bandFilters[0]);
+      // this.onChangeCup(this.state.cupFilters[0]);
+    }
 
     return (
       <div>
         {/* <form onSubmit={() => this.handleSubmit(product = {})}> */}
         <Label text="COLOR" value="__selected__" />
         <Swatches
+          selected={this.state.selectedColor}
           options={this.getColorFilters()}
           onChange={this.onChangeColor}
         />
         <BandVariantsContainer
           selectedColor={this.state.selectedColor}
           selectedBand={this.state.selectedBand}
-          selectedCup={this.state.selectedCup}
-          options={transformFilters(this.state.bandFilters)}
+          options={this.state.bandFilters}
           onChange={this.onChangeBand}
           getBandFilters={this.getBandFilters}
+          updateSelectedField={this.updateSelectedField}
         />
         <CupVariantsContainer
           selectedColor={this.state.selectedColor}
-          selectedBand={this.state.selectedBand}
           selectedCup={this.state.selectedCup}
-          options={transformFilters(this.state.cupFilters)}
+          options={this.state.cupFilters}
           onChange={this.onChangeCup}
           getCupFilters={this.getCupFilters}
+          updateSelectedField={this.updateSelectedField}
         />
         <Label text="STOCK" value="__selected__" />
         <input type="submit" value="Submit" />
