@@ -2,14 +2,14 @@ import React from 'react';
 import Dropdown from '../../../../thirdy-part-components/Dropdown';
 
 class CupVariantsContainer extends React.Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-  }
+  // }
 
-  componentDidMount() {
-    this.props.getCupFilters();
-  }
+  // componentDidMount() {
+  //   this.props.getCupFilters();
+  // }
 
   // componentDidUpdate(prevProps) {
   //   if (prevProps.selectedColor !== this.props.selectedColor

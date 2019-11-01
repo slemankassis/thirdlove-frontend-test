@@ -2,15 +2,12 @@ import React from 'react';
 import Dropdown from '../../../../thirdy-part-components/Dropdown';
 
 class BandVariantsContainer extends React.Component {
-  constructor(props) {
-    super(props);
-
-
-  }
-
-  componentDidMount() {
-    this.props.getBandFilters();
-  }
+  // constructor(props){
+  //   super(props)
+  // }
+  // // componentDidMount() {
+  // //   this.props.getBandFilters();
+  // // }
 
   // componentDidUpdate(prevProps) {
   //   if (prevProps.selectedColor !== this.props.selectedColor

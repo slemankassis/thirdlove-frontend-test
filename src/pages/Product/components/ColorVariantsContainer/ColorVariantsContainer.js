@@ -32,6 +32,11 @@ class ColorVariantsContainer extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.getBandFilters();
+    this.getCupFilters();
+  }
+
   getColorFilters() {
     const colorFilters = new Set();
     this.props.variants.forEach((variant) => {
@@ -40,10 +45,12 @@ class ColorVariantsContainer extends React.Component {
     return [...colorFilters];
   }
 
-  getBandFilters() {
+  getBandFilters(cup = '-') {
     const bandFilters = [];
     this.props.variants.forEach((variant) => {
-      if (variant.color === this.state.selectedColor) {
+      if (variant.color === this.state.selectedColor
+        && (variant.cup === cup || cup === '-')
+      ) {
         bandFilters.push(variant.band);
       }
     });
@@ -54,10 +61,12 @@ class ColorVariantsContainer extends React.Component {
     }));
   }
 
-  getCupFilters() {
+  getCupFilters(band = '-') {
     const cupFilters = [];
     this.props.variants.forEach((variant) => {
-      if (variant.color === this.state.selectedColor) {
+      if (variant.color === this.state.selectedColor
+        && (variant.band === band || band === '-')
+      ) {
         cupFilters.push(variant.cup);
       }
     });
@@ -69,6 +78,8 @@ class ColorVariantsContainer extends React.Component {
   }
 
   onChangeColor(value) {
+    // this.getCupFilters();
+    // this.getBandFilters();
     this.setState(() => ({
       selectedColor: value,
     }));
@@ -79,7 +90,7 @@ class ColorVariantsContainer extends React.Component {
 
     this.setState(() => ({
       selectedBand: value.value,
-    }));
+    }), this.getCupFilters(value.value));
   }
 
   onChangeCup(value) {
@@ -87,7 +98,7 @@ class ColorVariantsContainer extends React.Component {
 
     this.setState(() => ({
       selectedCup: value.value,
-    }));
+    }), this.getBandFilters(value.value));
   }
 
   render() {
@@ -99,6 +110,8 @@ class ColorVariantsContainer extends React.Component {
     console.log(!!checkIsValidProduct.length);
 
     if (!checkIsValidProduct.length) {
+      console.log(1111);
+
       this.getBandFilters();
       this.getCupFilters();
       // this.onChangeBand(this.state.bandFilters[0]);
