@@ -1,11 +1,10 @@
 import React from 'react';
+import classnames from 'classnames';
 
-class Button extends React.Component {
-  render() {
-    return (
-      1
-    );
-  }
-}
+const Button = ({ type, className, text }) => (
+  <button className={classnames(type, className)} type="button">
+    {text}
+  </button>
+);
 
 export default Button;
