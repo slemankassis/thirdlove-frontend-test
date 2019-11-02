@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 
 const transformFilters = (filters) => (
@@ -46,4 +47,17 @@ class Dropdown extends React.Component {
   }
 }
 
+Dropdown.propTypes = {
+  selected: PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+  }).isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onChange: PropTypes.func.isRequired,
+  label: PropTypes.string,
+};
+
+Dropdown.defaultProps = {
+  label: '',
+};
 export default Dropdown;

@@ -17,7 +17,7 @@ class Product extends React.Component {
   constructor(props) {
     super(props);
 
-    this.onchangeVariant = this.onchangeVariant.bind(this);
+    this.onChangeVariant = this.onChangeVariant.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.addToCart = this.addToCart.bind(this);
 
@@ -26,7 +26,7 @@ class Product extends React.Component {
     };
   }
 
-  onchangeVariant(value) {
+  onChangeVariant(value) {
     this.setState(() => ({
       selectedVariantId: value,
     }));
@@ -87,7 +87,7 @@ class Product extends React.Component {
         {variants && (
           <Variants
             selectedVariantId={selectedVariantId}
-            onchangeVariant={this.onchangeVariant}
+            onChangeVariant={this.onChangeVariant}
             variants={transformVariants(variants)}
           />
         )}

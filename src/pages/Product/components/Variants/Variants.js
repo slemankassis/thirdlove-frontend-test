@@ -42,7 +42,7 @@ class Variants extends React.Component {
 
     if (selectedVariant.length) {
       if (selectedVariant[0].id !== this.props.selectedVariantId) {
-        this.props.onchangeVariant(selectedVariant[0].id);
+        this.props.onChangeVariant(selectedVariant[0].id);
       }
     } else {
       this.getBandFilters();
@@ -121,14 +121,14 @@ class Variants extends React.Component {
           onChange={this.onChangeColor}
         />
         <Dropdown
-          selectedColor={this.state.selectedColor}
+          // selectedColor={this.state.selectedColor}
           selected={{ value: this.state.selectedBand, label: this.state.selectedBand }}
           options={this.state.bandFilters}
           onChange={this.onChangeBand}
           label="BAND SIZE"
         />
         <Dropdown
-          selectedColor={this.state.selectedColor}
+          // selectedColor={this.state.selectedColor}
           selected={{ value: this.state.selectedCup, label: this.state.selectedCup }}
           options={this.state.cupFilters}
           onChange={this.onChangeCup}
@@ -144,7 +144,7 @@ class Variants extends React.Component {
 
 Variants.propTypes = {
   selectedVariantId: PropTypes.string.isRequired,
-  onchangeVariant: PropTypes.func.isRequired,
+  onChangeVariant: PropTypes.func.isRequired,
   variants: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 

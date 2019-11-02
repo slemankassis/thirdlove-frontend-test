@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Variants renders snapshot 1`] = `
+"<div>
+  <Label text='COLOR' value='__selected__' className='' />
+  <Swatches selected={[undefined]} options={{...}} onChange={[Function: bound onChangeColor]} />
+  <Dropdown selected={{...}} options={{...}} onChange={[Function: bound onChangeBand]} label='BAND SIZE' />
+  <Dropdown selected={{...}} options={{...}} onChange={[Function: bound onChangeCup]} label='CUP SIZE' />
+  <Label text='STOCK' value='__selected__' className='' />
+  <input type='submit' value='Submit' />
+</div>"
+`;

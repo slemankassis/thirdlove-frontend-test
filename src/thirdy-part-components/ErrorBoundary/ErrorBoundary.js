@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = { hasError: false };
   }
 
@@ -13,7 +14,9 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      return <div className="error-boundary">{this.props.errorMessage}</div>;
+      return (
+        <div>{this.props.errorMessage}</div>
+      );
     }
     return this.props.children;
   }

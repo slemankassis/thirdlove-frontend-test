@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Swatches renders snapshot with basicProps 1`] = `
+"<div>
+  <input type='radio' id='__OPTION_1__' value='__OPTION_1__' onChange={[Function: onChange]} name='swatches' checked={false} />
+  <label htmlFor='__OPTION_1__'>
+    __OPTION_1__
+  </label>
+</div>
+
+
+<div>
+  <input type='radio' id='__OPTION_2__' value='__OPTION_2__' onChange={[Function: onChange]} name='swatches' checked={false} />
+  <label htmlFor='__OPTION_2__'>
+    __OPTION_2__
+  </label>
+</div>"
+`;
+
+exports[`Swatches renders snapshot with fullProps 1`] = `
+"<div>
+  <input type='radio' id='__OPTION_1__' value='__OPTION_1__' onChange={[Function: onChange]} name='swatches' checked={false} />
+  <label htmlFor='__OPTION_1__'>
+    __OPTION_1__
+  </label>
+</div>
+
+
+<div>
+  <input type='radio' id='__OPTION_2__' value='__OPTION_2__' onChange={[Function: onChange]} name='swatches' checked={false} />
+  <label htmlFor='__OPTION_2__'>
+    __OPTION_2__
+  </label>
+</div>"
+`;

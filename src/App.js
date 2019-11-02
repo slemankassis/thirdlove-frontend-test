@@ -8,7 +8,7 @@ function App() {
     'https://www.mocky.io/v2/5c6c3a92320000e83bbef971',
   );
 
-  // TODO: Use ErrorBoundary here for catch errors ind Product component
+  // TODO: Use ErrorBoundary here for catch errors in Product component
   return (
     <div>
       {loading ? (
