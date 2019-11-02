@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    jest: true,
   },
   extends: [
     'airbnb',
@@ -9,6 +10,11 @@ module.exports = {
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
+    shallow: false,
+    mount: false,
+    render: false,
+    escapeSnapshot: false,
+    mockData: false,
   },
   parserOptions: {
     ecmaFeatures: {
@@ -29,6 +35,7 @@ module.exports = {
     "react/jsx-fragments": 0,
     "import/prefer-default-export": 0,
     "react/jsx-no-bind": 0,
-    "react/sort-comp": 0
+    "react/sort-comp": 0,
+    "react/jsx-props-no-spreading": 0
   },
 };
