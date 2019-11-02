@@ -1,6 +1,5 @@
 import React from 'react';
 import Label from '../../../../thirdy-part-components/Label';
-import SelectorSizes from '../SelectorSizes';
 import Swatches from '../../../../thirdy-part-components/Swatches';
 import { removeDuplicates } from '../../../../utils';
 import Dropdown from '../../../../thirdy-part-components/Dropdown';
@@ -38,8 +37,6 @@ class ColorVariantsContainer extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state);
-
     const { selectedColor, selectedBand, selectedCup } = this.state;
 
     const checkIsValidProduct = isValidProduct(
@@ -49,9 +46,8 @@ class ColorVariantsContainer extends React.Component {
       selectedCup,
     );
 
-    console.log(!!checkIsValidProduct.length);
-
     if (!checkIsValidProduct.length) {
+      console.log(this.state);
       this.getBandFilters();
       this.getCupFilters();
     }
@@ -104,16 +100,12 @@ class ColorVariantsContainer extends React.Component {
   }
 
   onChangeBand(value) {
-    console.log('onChangeBand');
-
     this.setState(() => ({
       selectedBand: value.value,
     }), this.getCupFilters(value.value));
   }
 
   onChangeCup(value) {
-    console.log('onChangeCup');
-
     this.setState(() => ({
       selectedCup: value.value,
     }), this.getBandFilters(value.value));
