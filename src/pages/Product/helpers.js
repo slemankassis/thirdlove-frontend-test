@@ -41,13 +41,8 @@ const getSelectedVariant = (variants, selectedColor, selectedBand, selectedCup) 
   ))
 );
 
-const getObjFromArrayByKey = (array, id) => (
-  array.find((element) => element.id.toString() === id.toString())
-);
-
 export {
   transformImages,
   transformVariants,
   getSelectedVariant,
-  getObjFromArrayByKey,
 };
