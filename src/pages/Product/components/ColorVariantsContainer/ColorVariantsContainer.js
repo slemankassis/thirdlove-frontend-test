@@ -37,6 +37,26 @@ class ColorVariantsContainer extends React.Component {
     this.getCupFilters();
   }
 
+  componentDidUpdate() {
+    console.log(this.state);
+
+    const { selectedColor, selectedBand, selectedCup } = this.state;
+
+    const checkIsValidProduct = isValidProduct(
+      this.props.variants,
+      selectedColor,
+      selectedBand,
+      selectedCup,
+    );
+
+    console.log(!!checkIsValidProduct.length);
+
+    if (!checkIsValidProduct.length) {
+      this.getBandFilters();
+      this.getCupFilters();
+    }
+  }
+
   getColorFilters() {
     const colorFilters = new Set();
     this.props.variants.forEach((variant) => {
@@ -100,30 +120,6 @@ class ColorVariantsContainer extends React.Component {
   }
 
   render() {
-    console.log(this.state);
-
-    const { selectedColor, selectedBand, selectedCup } = this.state;
-
-    const checkIsValidProduct = isValidProduct(
-      this.props.variants,
-      selectedColor,
-      selectedBand,
-      selectedCup,
-    );
-
-    console.log(!!checkIsValidProduct.length);
-
-    if (!checkIsValidProduct.length) {
-      console.log(1111);
-
-      this.getBandFilters();
-      this.getCupFilters();
-      // this.onChangeBand(this.state.cupFilters[1]);
-      // this.onChangeCup(this.state.bandFilters[1]);
-      // this.onChangeBand(this.state.bandFilters[0]);
-      // this.onChangeCup(this.state.cupFilters[0]);
-    }
-
     return (
       <div>
         {/* <form onSubmit={() => this.handleSubmit(product = {})}> */}
