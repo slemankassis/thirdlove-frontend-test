@@ -4,6 +4,7 @@ module.exports = {
   SIZE_VARIANTS: 'option2',
   STOCK: 'inventory_quantity',
   ID: 'id',
+  TITLE: 'title',
   PRICE: 'price',
   THUMBNAIL: 'src100',
   ORIGINAL_MEDIUM: 'src600',

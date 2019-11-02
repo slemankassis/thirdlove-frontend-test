@@ -1,9 +1,8 @@
 import React from 'react';
 import Label from '../../../../thirdy-part-components/Label';
-import CupVariantsContainer from '../CupVariantsContainer';
-import BandVariantsContainer from '../BandVariantsContainer';
 import Swatches from '../../../../thirdy-part-components/Swatches';
 import { removeDuplicates } from '../../../../utils';
+import Dropdown from '../../../../thirdy-part-components/Dropdown';
 
 const isValidProduct = (variants, selectedColor, selectedBand, selectedCup) => (
   variants.filter((variant) => (
@@ -38,8 +37,6 @@ class ColorVariantsContainer extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state);
-
     const { selectedColor, selectedBand, selectedCup } = this.state;
 
     const checkIsValidProduct = isValidProduct(
@@ -49,9 +46,8 @@ class ColorVariantsContainer extends React.Component {
       selectedCup,
     );
 
-    console.log(!!checkIsValidProduct.length);
-
     if (!checkIsValidProduct.length) {
+      console.log(this.state);
       this.getBandFilters();
       this.getCupFilters();
     }
@@ -104,16 +100,12 @@ class ColorVariantsContainer extends React.Component {
   }
 
   onChangeBand(value) {
-    console.log('onChangeBand');
-
     this.setState(() => ({
       selectedBand: value.value,
     }), this.getCupFilters(value.value));
   }
 
   onChangeCup(value) {
-    console.log('onChangeCup');
-
     this.setState(() => ({
       selectedCup: value.value,
     }), this.getBandFilters(value.value));
@@ -129,21 +121,19 @@ class ColorVariantsContainer extends React.Component {
           options={this.getColorFilters()}
           onChange={this.onChangeColor}
         />
-        <BandVariantsContainer
+        <Dropdown
           selectedColor={this.state.selectedColor}
-          selectedBand={this.state.selectedBand}
+          selected={{ value: this.state.selectedBand, label: this.state.selectedBand }}
           options={this.state.bandFilters}
           onChange={this.onChangeBand}
-          getBandFilters={this.getBandFilters}
-          updateSelectedField={this.updateSelectedField}
+          label="BAND SIZE"
         />
-        <CupVariantsContainer
+        <Dropdown
           selectedColor={this.state.selectedColor}
-          selectedCup={this.state.selectedCup}
+          selected={{ value: this.state.selectedCup, label: this.state.selectedCup }}
           options={this.state.cupFilters}
           onChange={this.onChangeCup}
-          getCupFilters={this.getCupFilters}
-          updateSelectedField={this.updateSelectedField}
+          label="CUP SIZE"
         />
         <Label text="STOCK" value="__selected__" />
         <input type="submit" value="Submit" />
