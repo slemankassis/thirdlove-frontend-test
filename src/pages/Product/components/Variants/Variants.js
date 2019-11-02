@@ -1,18 +1,11 @@
 import React from 'react';
 import Label from '../../../../thirdy-part-components/Label';
 import Swatches from '../../../../thirdy-part-components/Swatches';
-import { removeDuplicates } from '../../../../utils';
+import { removeDuplicates } from '../../../../helpers';
 import Dropdown from '../../../../thirdy-part-components/Dropdown';
+import { getSelectedVariants } from '../../helpers';
 
-const isValidProduct = (variants, selectedColor, selectedBand, selectedCup) => (
-  variants.filter((variant) => (
-    (variant.color === selectedColor)
-    && (variant.band === selectedBand)
-    && (variant.cup === selectedCup)
-  ))
-);
-
-class ColorVariantsContainer extends React.Component {
+class Variants extends React.Component {
   constructor(props) {
     super(props);
     this.getColorFilters = this.getColorFilters.bind(this);
@@ -39,15 +32,18 @@ class ColorVariantsContainer extends React.Component {
   componentDidUpdate() {
     const { selectedColor, selectedBand, selectedCup } = this.state;
 
-    const checkIsValidProduct = isValidProduct(
+    const selectedVariant = getSelectedVariants(
       this.props.variants,
       selectedColor,
       selectedBand,
       selectedCup,
     );
 
-    if (!checkIsValidProduct.length) {
-      console.log(this.state);
+    if (selectedVariant.length) {
+      if (selectedVariant[0].id !== this.props.selectedVariantId) {
+        this.props.onchangeVariant(selectedVariant[0].id);
+      }
+    } else {
       this.getBandFilters();
       this.getCupFilters();
     }
@@ -143,4 +139,4 @@ class ColorVariantsContainer extends React.Component {
   }
 }
 
-export default ColorVariantsContainer;
+export default Variants;

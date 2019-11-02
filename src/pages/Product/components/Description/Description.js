@@ -1,5 +1,5 @@
 import React from 'react';
-import { sanitizeHtml } from '../../../../utils';
+import { sanitizeHtml } from '../../../../helpers';
 import './description.scss';
 
 class Description extends React.Component {

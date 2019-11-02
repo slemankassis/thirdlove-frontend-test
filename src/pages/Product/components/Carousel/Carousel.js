@@ -5,6 +5,7 @@ import './carousel.scss';
 
 class Carousel extends React.Component {
   render() {
+    // TODO: Filter images by color
     return (
       <ImageGallery items={this.props.images} />
     );
