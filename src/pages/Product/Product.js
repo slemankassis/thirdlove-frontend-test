@@ -60,7 +60,7 @@ class Product extends React.Component {
       throw new Error('Unexpected error getting variant of product');
     }
 
-    const transformedVariant = transformVariants([selectedVariant]);
+    const transformedVariant = transformVariants([selectedVariant])[0];
     const {
       color,
       price,
@@ -69,15 +69,17 @@ class Product extends React.Component {
       cup,
     } = transformedVariant;
 
+    console.log(transformedVariant);
+    console.log(color);
+    console.log(transformedVariant);
+
     return (
       <React.Fragment>
         <Carousel images={transformImages(images)} />
         {/* TODO: Use form with input dropdown and radios */}
         {/* <form onSubmit={() => this.handleSubmit(title, id, variants[selectedVariantId])}> */}
         <Label className="product-title" text={title} />
-        {variants[selectedVariantId] && (
-          <Label className="product-color" text={`COLOR: ${color}`} />
-        )}
+        <Label className="product-color" text={`COLOR: ${color}`} />
         <Label className="product-price" text={price} />
         <Variants
           selectedVariantId={selectedVariantId}
