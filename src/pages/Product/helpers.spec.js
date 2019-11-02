@@ -2,7 +2,7 @@ import {
   transformImages,
   transformVariants,
   getSelectedVariant,
-  getObjsFromArrayByKey,
+  getObjFromArrayByKey,
 } from './helpers';
 
 expect.extend({
@@ -192,29 +192,47 @@ describe('Helpers of Product: getSelectedVariant', () => {
   });
 });
 
-describe('Helpers of Product: getObjsFromArrayByKey', () => {
-  xit('Should convert an array of images objects into another with propertly keys and values for image gallery', () => {
+describe('Helpers of Product: getObjFromArrayByKey', () => {
+  it('Should get the first result of an object that matches with a key', () => {
     // Arranging
     const input = [{
-      src100: '__VALUE_A1__',
-      src600: '__VALUE_A2__',
-      src1000: '__VALUE_A3__',
+      band: '32',
+      color: 'naked-3',
+      cup: 'E',
+      id: '6989569458233',
+      option2: '32E',
+      price: '68.00',
+      stock: 764,
     },
     {
-      src100: '__VALUE_B1__',
-      src600: '__VALUE_B2__',
-      src1000: '__VALUE_B3__',
+      band: '32',
+      color: 'naked-1',
+      cup: 'F',
+      id: '6989569491001',
+      option2: '32F',
+      price: '68.00',
+      stock: 158,
+    },
+    {
+      band: '34',
+      color: 'naked-2',
+      cup: 'D',
+      id: '4615727513637',
+      option2: '32E',
+      price: '68.00',
+      stock: 5,
     }];
     // Acting
-    const transformed = getObjsFromArrayByKey(input);
+    const result = getObjFromArrayByKey(input, '4615727513637');
     // Asserting
-    expect(transformed).toEqual([{
-      original: 'https://__VALUE_A3__',
-      thumbnail: 'https://__VALUE_A1__',
-    },
-    {
-      original: 'https://__VALUE_B3__',
-      thumbnail: 'https://__VALUE_B1__',
-    }]);
+    expect(result).toEqual({
+      band: '34',
+      color: 'naked-2',
+      cup: 'D',
+      id: '4615727513637',
+      option2: '32E',
+      price: '68.00',
+      stock: 5,
+    });
   });
 });

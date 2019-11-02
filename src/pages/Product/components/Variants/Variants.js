@@ -40,7 +40,7 @@ class Variants extends React.Component {
       selectedCup,
     );
 
-    if (selectedVariant !== -1) {
+    if (selectedVariant) {
       if (selectedVariant.id !== this.props.selectedVariantId) {
         this.props.onChangeVariant(selectedVariant.id);
       }
