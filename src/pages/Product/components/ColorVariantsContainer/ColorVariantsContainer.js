@@ -65,11 +65,11 @@ class ColorVariantsContainer extends React.Component {
     return [...colorFilters];
   }
 
-  getBandFilters(cup = '-') {
+  getBandFilters(cup) {
     const bandFilters = [];
     this.props.variants.forEach((variant) => {
       if (variant.color === this.state.selectedColor
-        && (variant.cup === cup || cup === '-')
+        && (!cup || variant.cup === cup)
       ) {
         bandFilters.push(variant.band);
       }
@@ -81,11 +81,11 @@ class ColorVariantsContainer extends React.Component {
     }));
   }
 
-  getCupFilters(band = '-') {
+  getCupFilters(band) {
     const cupFilters = [];
     this.props.variants.forEach((variant) => {
       if (variant.color === this.state.selectedColor
-        && (variant.band === band || band === '-')
+        && (!band || variant.band === band)
       ) {
         cupFilters.push(variant.cup);
       }
