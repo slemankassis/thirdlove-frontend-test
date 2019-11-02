@@ -1,69 +1,39 @@
 import React from 'react';
 import Button from '../../thirdy-part-components/Button';
 import Label from '../../thirdy-part-components/Label';
-import {
-  THUMBNAIL,
-  ORIGINAL_LARGE,
-  COLOR_VARIANTS,
-  SIZE_VARIANTS,
-  QTY_CHARS_FOR_BAND_SIZES,
-  ID,
-  TITLE,
-  PRICE,
-  STOCK,
-} from './Constants';
-import Carousel from './components/Carousel';
-import VariantsContainer from './components/VariantsContainer';
+import Carousel from '../../thirdy-part-components/Carousel';
+import Variants from './components/Variants';
 import Description from './components/Description';
 import './Product.scss';
-
-const transformImages = (images) => (
-  images.reduce((transformedImages, image) => (
-    transformedImages.concat({
-      thumbnail: `https://${image[THUMBNAIL]}`,
-      original: `https://${image[ORIGINAL_LARGE]}`,
-    })
-  ), [])
-);
-
-const transformVariants = (variants) => (
-  variants.reduce((transformedVariants, variant) => (variant[STOCK] >= 10
-    ? transformedVariants.concat({
-      id: variant[ID],
-      title: variant[TITLE],
-      price: variant[PRICE],
-      stock: variant[STOCK],
-      color: variant[COLOR_VARIANTS],
-      [SIZE_VARIANTS]: variant[SIZE_VARIANTS],
-      band: `${variant[SIZE_VARIANTS][0]}${variant[SIZE_VARIANTS][1]}`,
-      cup: variant[SIZE_VARIANTS].slice(QTY_CHARS_FOR_BAND_SIZES),
-    })
-    : transformedVariants
-  ), [])
-);
+import { transformImages, transformVariants, getObjsFromArrayByKey } from './utils';
 
 class Product extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
+
     this.onchangeVariant = this.onchangeVariant.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.addToCart = this.addToCart.bind(this);
 
-    console.log(this.props.product.variants[0]);
-
     this.state = {
-      selectedVariant: this.props.product.variants[0].id,
+      selectedVariantId: this.props.product.variants[0].id,
     };
   }
 
   onchangeVariant(value) {
-    this.state(() => ({
-      selectedVariant: value,
+    this.setState(() => ({
+      selectedVariantId: value,
     }));
   }
 
-  handleSubmit(title, productId, { band, cup, id: variantId }) {
+  handleSubmit({
+    title,
+    productId,
+    band,
+    cup,
+    variantId,
+  }) {
+    // eslint-disable-next-line no-alert
     alert(`Added a ${title} - ${band}${cup} to the cart`);
     this.addToCart(productId, variantId);
   }
@@ -76,38 +46,55 @@ class Product extends React.Component {
   render() {
     const {
       product: {
-        id,
+        id: productId,
         title,
-        price,
-        stock,
         images,
         variants,
         body_html: bodyHtml,
       },
     } = this.props;
-    const { selectedVariant } = this.state;
+    const { selectedVariantId } = this.state;
+
+    const selectedVariant = getObjsFromArrayByKey(variants, selectedVariantId);
+    if (!selectedVariant.length) {
+      throw new Error('Unexpected error getting variant of product');
+    }
+
+    const {
+      color,
+      price,
+      stock,
+      band,
+      cup,
+    } = selectedVariant;
+
     return (
       <React.Fragment>
         <Carousel images={transformImages(images)} />
         {/* TODO: Use form with input dropdown and radios */}
-        {/* <form onSubmit={() => this.handleSubmit(title, id, variants[selectedVariant])}> */}
+        {/* <form onSubmit={() => this.handleSubmit(title, id, variants[selectedVariantId])}> */}
         <Label className="product-title" text={title} />
-        {variants[selectedVariant] && (
-          <Label className="product-color" text={`COLOR: ${variants[selectedVariant].color}`} />
+        {variants[selectedVariantId] && (
+          <Label className="product-color" text={`COLOR: ${color}`} />
         )}
         <Label className="product-price" text={price} />
-        <VariantsContainer
-          onChange={this.onchangeProduct}
+        <Variants
+          selectedVariant={selectedVariantId}
+          onchangeVariant={this.onchangeVariant}
           variants={transformVariants(variants)}
-          selectedVariant={selectedVariant}
         />
         <Label className="product-stock" text={`STOCK: ${stock}`} />
-        <input type="submit" value="Submit" />
         {/* </form> */}
         <Button
           type="action"
           text="Add to Bag"
-          onClick={() => this.handleClick(title, id, variants[selectedVariant])}
+          onClick={() => this.handleClick({
+            title,
+            productId,
+            band,
+            cup,
+            selectedVariantId,
+          })}
         />
         <Description className="product-description" contentHtml={bodyHtml} />
       </React.Fragment>

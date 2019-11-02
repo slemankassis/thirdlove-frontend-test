@@ -32,7 +32,7 @@ class Dropdown extends React.Component {
     const { options, label } = this.props;
 
     return (
-      <label>
+      <label htmlFor={this.state.selected}>
         {label}
         <Select
           value={this.state.selected}
