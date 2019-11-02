@@ -35,16 +35,22 @@ const transformVariants = (variants) => (
   ), [])
 );
 
-const getSelectedVariant = (variants, selectedColor, selectedBand, selectedCup) => (
-  variants.find((variant) => (
-    (variant.color === selectedColor)
-    && (variant.band === selectedBand)
-    && (variant.cup === selectedCup)
+// TODO: Make generic with n filters
+const getVariant = ({
+  variants,
+  color,
+  band,
+  cup,
+}) => (
+  variants && variants.find((variant) => (
+    (!color || variant.color === color)
+      && (!band || variant.band === band)
+      && (!cup || variant.cup === cup)
   ))
 );
 
 export {
   transformImages,
   transformVariants,
-  getSelectedVariant,
+  getVariant,
 };
