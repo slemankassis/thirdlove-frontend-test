@@ -25,16 +25,10 @@ module.exports = {
     "no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
     "no-console": "off",
     "no-underscore-dangle": 0,
-    'react/prefer-stateless-function': 0,
-    "react/forbid-prop-types": 0,
     "react/destructuring-assignment": 0,
-    "react/prop-types": 0,
     "react/jsx-fragments": 0,
     "import/prefer-default-export": 0,
-    "camelcase": 0,
     "react/jsx-no-bind": 0,
-    "react/sort-comp": 0,
-    "react/no-unused-state": 0,
-    "react/no-access-state-in-setstate": 0
+    "react/sort-comp": 0
   },
 };

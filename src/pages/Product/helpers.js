@@ -21,7 +21,7 @@ const transformImages = (images) => (
 const transformVariants = (variants) => (
   variants.reduce((transformedVariants, variant) => (variant[STOCK] >= 10
     ? transformedVariants.concat({
-      id: variant[ID],
+      id: variant[ID].toString(),
       price: variant[PRICE],
       stock: variant[STOCK],
       color: variant[COLOR_VARIANTS],
@@ -41,7 +41,9 @@ const getSelectedVariants = (variants, selectedColor, selectedBand, selectedCup)
   ))
 );
 
-const getObjsFromArrayByKey = (array, id) => array.find((element) => element.id === id);
+const getObjsFromArrayByKey = (array, id) => (
+  array.find((element) => element.id.toString() === id.toString())
+);
 
 export {
   transformImages,
