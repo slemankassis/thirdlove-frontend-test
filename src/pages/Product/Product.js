@@ -9,7 +9,6 @@ import {
   transformVariants,
 } from './helpers';
 import {
-  getObjFromArrayByKey,
 } from '../../helpers';
 import './Product.scss';
 

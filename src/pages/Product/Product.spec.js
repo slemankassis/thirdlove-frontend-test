@@ -2,20 +2,11 @@ import React from 'react';
 import Product from './Product';
 
 describe('Product snaps', () => {
-  it('renders snapshot', () => {
-    const props = {
-      product: mockData.product,
-    };
+  let props = {};
+  let Component = {};
 
-    const component = shallow(<Product {...props} />);
-    expect(escapeSnapshot(component)).toMatchSnapshot();
-  });
-});
-
-describe('Product logic', () => {
-  it('Should be updated when selected variant id changes', () => {
-    // Arranging
-    const props = {
+  beforeEach(() => {
+    props = {
       product: {
         id: 1,
         title: '__TITLE',
@@ -51,6 +42,20 @@ describe('Product logic', () => {
         body_html: '<div>__BODY_HTML__</div>',
       },
     };
+  });
+
+  afterEach(() => {
+    Component = undefined;
+  });
+
+  it('renders snapshot', () => {
+    Component = shallow(<Product {...props} />);
+    expect(escapeSnapshot(Component)).toMatchSnapshot();
+  });
+
+  it('Should be updated when selected variant id changes', () => {
+    // Arranging
+    Component = shallow(<Product {...props} />);
     const component = shallow(<Product {...props} />);
     const value = '4615727513637';
     // Acting
