@@ -3,6 +3,7 @@ import Label from '../../../../thirdy-part-components/Label';
 import SelectorSizes from '../SelectorSizes';
 import Swatches from '../../../../thirdy-part-components/Swatches';
 import { removeDuplicates } from '../../../../utils';
+import Dropdown from '../../../../thirdy-part-components/Dropdown';
 
 const isValidProduct = (variants, selectedColor, selectedBand, selectedCup) => (
   variants.filter((variant) => (
@@ -128,20 +129,18 @@ class ColorVariantsContainer extends React.Component {
           options={this.getColorFilters()}
           onChange={this.onChangeColor}
         />
-        <SelectorSizes
+        <Dropdown
           selectedColor={this.state.selectedColor}
-          selectedSize={this.state.selectedBand}
+          selected={{ value: this.state.selectedBand, label: this.state.selectedBand }}
           options={this.state.bandFilters}
           onChange={this.onChangeBand}
-          getFilters={this.getBandFilters}
           label="BAND SIZE"
         />
-        <SelectorSizes
+        <Dropdown
           selectedColor={this.state.selectedColor}
-          selectedSize={this.state.selectedCup}
+          selected={{ value: this.state.selectedCup, label: this.state.selectedCup }}
           options={this.state.cupFilters}
           onChange={this.onChangeCup}
-          getCupFilters={this.getCupFilters}
           label="CUP SIZE"
         />
         <Label text="STOCK" value="__selected__" />
