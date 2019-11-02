@@ -1,7 +1,7 @@
 import {
   transformImages,
   transformVariants,
-  getSelectedVariants,
+  getSelectedVariant,
   getObjsFromArrayByKey,
 } from './helpers';
 
@@ -98,7 +98,6 @@ describe('Helpers of Product: transformVariants', () => {
       price: '68.00',
       stock: 158,
     }]);
-
     expect(transformed).toContainObject({
       band: '32',
       color: 'naked-1',
@@ -126,5 +125,32 @@ describe('Helpers of Product: transformVariants', () => {
     //   price: '68.00',
     //   stock: 5,
     // });
+  });
+});
+
+describe('Helpers of Product: transformImages', () => {
+  it('Should convert an array of images objects into another with propertly keys and values for image gallery', () => {
+    // Arranging
+    const input = [{
+      src100: '__VALUE_A1__',
+      src600: '__VALUE_A2__',
+      src1000: '__VALUE_A3__',
+    },
+    {
+      src100: '__VALUE_B1__',
+      src600: '__VALUE_B2__',
+      src1000: '__VALUE_B3__',
+    }];
+    // Acting
+    const transformed = transformImages(input);
+    // Asserting
+    expect(transformed).toEqual([{
+      original: 'https://__VALUE_A3__',
+      thumbnail: 'https://__VALUE_A1__',
+    },
+    {
+      original: 'https://__VALUE_B3__',
+      thumbnail: 'https://__VALUE_B1__',
+    }]);
   });
 });

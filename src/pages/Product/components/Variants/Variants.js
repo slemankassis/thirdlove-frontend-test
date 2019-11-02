@@ -4,7 +4,7 @@ import Label from '../../../../thirdy-part-components/Label';
 import Swatches from '../../../../thirdy-part-components/Swatches';
 import { removeDuplicates } from '../../../../helpers';
 import Dropdown from '../../../../thirdy-part-components/Dropdown';
-import { getSelectedVariants } from '../../helpers';
+import { getSelectedVariant } from '../../helpers';
 
 class Variants extends React.Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class Variants extends React.Component {
   componentDidUpdate() {
     const { selectedColor, selectedBand, selectedCup } = this.state;
 
-    const selectedVariant = getSelectedVariants(
+    const selectedVariant = getSelectedVariant(
       this.props.variants,
       selectedColor,
       selectedBand,
