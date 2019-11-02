@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders snapshot with fullProps 1`] = `
+"<button className='__TEXT__ __CLASS_NAME__' type='button'>
+  __TEXT__
+</button>"
+`;
+
+exports[`Button renders snapshot without props 1`] = `"<button className='' type='button' />"`;
