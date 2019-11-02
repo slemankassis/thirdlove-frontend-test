@@ -10,7 +10,8 @@
         "test",
         "--runInBand",
         "--no-cache",
-        "--watchAll=false"
+        "--watchAll=false",
+        "${relativeFile}"
       ],
       "cwd": "${workspaceRoot}",
       "protocol": "inspector",
