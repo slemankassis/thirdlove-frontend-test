@@ -4,7 +4,12 @@ import Label from '../../thirdy-part-components/Label';
 import Carousel from './components/Carousel';
 import Variants from './components/Variants';
 import Description from './components/Description';
-import { transformImages, transformVariants, getObjsFromArrayByKey } from './helpers';
+import {
+  transformImages,
+  transformVariants,
+  getObjsFromArrayByKey,
+} from './helpers';
+import { formatPrice } from '../../helpers';
 import './Product.scss';
 
 class Product extends React.Component {
@@ -80,7 +85,7 @@ class Product extends React.Component {
         {/* <form onSubmit={() => this.handleSubmit(title, id, variants[selectedVariantId])}> */}
         <Label className="product-title" text={title} />
         <Label className="product-color" text={`COLOR: ${color}`} />
-        <Label className="product-price" text={price} />
+        <Label className="product-price" text={formatPrice(price)} />
         <Variants
           selectedVariantId={selectedVariantId}
           onchangeVariant={this.onchangeVariant}

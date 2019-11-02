@@ -10,4 +10,6 @@ const sanitizeHtml = (html, allowedTags) => {
 
 const removeDuplicates = (array) => [...new Set(array)];
 
-export { sanitizeHtml, removeDuplicates };
+const formatPrice = (price) => `$${price.split('.')[0]}`;
+
+export { sanitizeHtml, removeDuplicates, formatPrice };
