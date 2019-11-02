@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ErrorBoundary renders snapshot with basicProps 1`] = `""`;
+exports[`ErrorBoundary snaps renders snapshot with basicProps 1`] = `"<div />"`;
 
-exports[`ErrorBoundary renders snapshot with fullProps 1`] = `"<div />"`;
+exports[`ErrorBoundary snaps renders snapshot with fullProps 1`] = `"<div />"`;
