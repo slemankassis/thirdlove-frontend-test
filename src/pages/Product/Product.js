@@ -66,7 +66,12 @@ class Product extends React.Component {
       throw new Error('Unexpected error on get variant of product');
     }
 
-    const transformedVariant = transformVariants([selectedVariant])[0];
+    const transformedVariantsArray = transformVariants([selectedVariant]);
+
+    const transformedVariant = (
+      (transformedVariantsArray.length && transformedVariantsArray[0])
+    ) || this.props.product.variants[0];
+
     const {
       color,
       price,
