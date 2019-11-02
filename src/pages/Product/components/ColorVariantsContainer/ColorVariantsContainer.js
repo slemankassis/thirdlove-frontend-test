@@ -1,7 +1,6 @@
 import React from 'react';
 import Label from '../../../../thirdy-part-components/Label';
-import CupVariantsContainer from '../CupVariantsContainer';
-import BandVariantsContainer from '../BandVariantsContainer';
+import SelectorSizes from '../SelectorSizes';
 import Swatches from '../../../../thirdy-part-components/Swatches';
 import { removeDuplicates } from '../../../../utils';
 
@@ -129,21 +128,21 @@ class ColorVariantsContainer extends React.Component {
           options={this.getColorFilters()}
           onChange={this.onChangeColor}
         />
-        <BandVariantsContainer
+        <SelectorSizes
           selectedColor={this.state.selectedColor}
-          selectedBand={this.state.selectedBand}
+          selectedSize={this.state.selectedBand}
           options={this.state.bandFilters}
           onChange={this.onChangeBand}
-          getBandFilters={this.getBandFilters}
-          updateSelectedField={this.updateSelectedField}
+          getFilters={this.getBandFilters}
+          label="BAND SIZE"
         />
-        <CupVariantsContainer
+        <SelectorSizes
           selectedColor={this.state.selectedColor}
-          selectedCup={this.state.selectedCup}
+          selectedSize={this.state.selectedCup}
           options={this.state.cupFilters}
           onChange={this.onChangeCup}
           getCupFilters={this.getCupFilters}
-          updateSelectedField={this.updateSelectedField}
+          label="CUP SIZE"
         />
         <Label text="STOCK" value="__selected__" />
         <input type="submit" value="Submit" />
