@@ -8,7 +8,7 @@ import Description from './components/Description';
 import {
   transformImages,
   transformVariants,
-  getObjsFromArrayByKey,
+  getObjFromArrayByKey,
 } from './helpers';
 import { formatPrice } from '../../helpers';
 import './Product.scss';
@@ -61,7 +61,7 @@ class Product extends React.Component {
     } = this.props;
     const { selectedVariantId } = this.state;
 
-    const selectedVariant = getObjsFromArrayByKey(variants, selectedVariantId);
+    const selectedVariant = getObjFromArrayByKey(variants, selectedVariantId);
     if (!selectedVariant) {
       throw new Error('Unexpected error on get variant of product');
     }

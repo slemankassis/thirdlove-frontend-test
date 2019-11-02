@@ -33,21 +33,21 @@ const transformVariants = (variants) => (
   ), [])
 );
 
-const getSelectedVariants = (variants, selectedColor, selectedBand, selectedCup) => (
-  variants.filter((variant) => (
+const getSelectedVariant = (variants, selectedColor, selectedBand, selectedCup) => (
+  variants.find((variant) => (
     (variant.color === selectedColor)
     && (variant.band === selectedBand)
     && (variant.cup === selectedCup)
   ))
 );
 
-const getObjsFromArrayByKey = (array, id) => (
+const getObjFromArrayByKey = (array, id) => (
   array.find((element) => element.id.toString() === id.toString())
 );
 
 export {
   transformImages,
   transformVariants,
-  getSelectedVariants,
-  getObjsFromArrayByKey,
+  getSelectedVariant,
+  getObjFromArrayByKey,
 };

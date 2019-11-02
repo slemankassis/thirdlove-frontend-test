@@ -5,3 +5,9 @@ exports[`Description renders snapshot 1`] = `
   <div dangerouslySetInnerHTML={{...}} />
 </div>"
 `;
+
+exports[`Description snaps renders snapshot 1`] = `
+"<div className=''>
+  <div dangerouslySetInnerHTML={{...}} />
+</div>"
+`;

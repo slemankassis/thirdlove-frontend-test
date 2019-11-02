@@ -12,3 +12,16 @@ exports[`Dropdown renders snapshot with fullProps 1`] = `
   <StateManager value={{...}} onChange={[Function: bound handleChange]} options={{...}} defaultInputValue='' defaultMenuIsOpen={false} defaultValue={{...}} />
 </label>"
 `;
+
+exports[`Dropdown snaps renders snapshot with basicProps 1`] = `
+"<label htmlFor='__VALUE__'>
+  <StateManager value={{...}} onChange={[Function: bound handleChange]} options={{...}} defaultInputValue='' defaultMenuIsOpen={false} defaultValue={{...}} />
+</label>"
+`;
+
+exports[`Dropdown snaps renders snapshot with fullProps 1`] = `
+"<label htmlFor='__VALUE__'>
+  __LABEL__
+  <StateManager value={{...}} onChange={[Function: bound handleChange]} options={{...}} defaultInputValue='' defaultMenuIsOpen={false} defaultValue={{...}} />
+</label>"
+`;
