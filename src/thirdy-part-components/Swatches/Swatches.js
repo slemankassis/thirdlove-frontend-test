@@ -33,12 +33,13 @@ class Swatches extends React.Component {
 }
 
 Swatches.propTypes = {
-  selected: PropTypes.string.isRequired,
+  selected: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   onChange: PropTypes.func,
 };
 
 Swatches.defaultProps = {
+  selected: undefined,
   onChange: null,
 };
 

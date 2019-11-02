@@ -5,3 +5,9 @@ exports[`App renders snapshot without info 1`] = `
   Loading...
 </div>"
 `;
+
+exports[`App snaps renders snapshot without info 1`] = `
+"<div>
+  Loading...
+</div>"
+`;
