@@ -18,18 +18,20 @@ const transformImages = (images) => (
   ), [])
 );
 
+// Transform keys and remove invalid elements
 const transformVariants = (variants) => (
-  variants.reduce((transformedVariants, variant) => (variant[STOCK] >= 10
-    ? transformedVariants.concat({
-      id: variant[ID].toString(),
-      price: variant[PRICE],
-      stock: variant[STOCK],
-      color: variant[COLOR_VARIANTS],
-      [SIZE_VARIANTS]: variant[SIZE_VARIANTS],
-      band: `${variant[SIZE_VARIANTS][0]}${variant[SIZE_VARIANTS][1]}`,
-      cup: variant[SIZE_VARIANTS].slice(QTY_CHARS_FOR_BAND_SIZES),
-    })
-    : transformedVariants
+  variants.reduce((transformedVariants, variant) => (
+    (variant[STOCK] >= 10 && !!Object.values(variant))
+      ? transformedVariants.concat({
+        id: variant[ID].toString(),
+        price: variant[PRICE],
+        stock: variant[STOCK],
+        color: variant[COLOR_VARIANTS],
+        [SIZE_VARIANTS]: variant[SIZE_VARIANTS],
+        band: `${variant[SIZE_VARIANTS][0]}${variant[SIZE_VARIANTS][1]}`,
+        cup: variant[SIZE_VARIANTS].slice(QTY_CHARS_FOR_BAND_SIZES),
+      })
+      : transformedVariants
   ), [])
 );
 

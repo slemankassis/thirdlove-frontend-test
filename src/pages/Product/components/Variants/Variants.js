@@ -116,7 +116,8 @@ class Variants extends React.Component {
   }
 
   render() {
-    const selectedVariant = getObjFromArrayByKey(this.props.variants, this.props.selectedVariantId) || this.props.variants[0];
+    const selectedVariant = getObjFromArrayByKey(this.props.variants, this.props.selectedVariantId)
+      || this.props.variants[0];
     const {
       color,
       price,
