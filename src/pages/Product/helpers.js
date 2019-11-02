@@ -34,7 +34,7 @@ const transformVariants = (variants) => (
 );
 
 const getSelectedVariant = (variants, selectedColor, selectedBand, selectedCup) => (
-  variants.filter((variant) => (
+  variants.find((variant) => (
     (variant.color === selectedColor)
     && (variant.band === selectedBand)
     && (variant.cup === selectedCup)

@@ -40,9 +40,9 @@ class Variants extends React.Component {
       selectedCup,
     );
 
-    if (selectedVariant.length) {
-      if (selectedVariant[0].id !== this.props.selectedVariantId) {
-        this.props.onChangeVariant(selectedVariant[0].id);
+    if (selectedVariant !== -1) {
+      if (selectedVariant.id !== this.props.selectedVariantId) {
+        this.props.onChangeVariant(selectedVariant.id);
       }
     } else {
       this.getBandFilters();
