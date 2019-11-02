@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropdown from './Dropdown';
 
-describe('Dropdown', () => {
+describe('Dropdown snaps', () => {
   it('renders snapshot with basicProps', () => {
     const basicProps = {
       selected: {

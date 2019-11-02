@@ -1,7 +1,7 @@
 import React from 'react';
 import Swatches from './Swatches';
 
-describe('Swatches', () => {
+describe('Swatches snaps', () => {
   it('renders snapshot with basicProps', () => {
     const basicProps = {
       selected: '__SELECTED__',

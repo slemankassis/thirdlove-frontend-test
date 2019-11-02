@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousel from './Carousel';
 
-describe('Carousel', () => {
+describe('Carousel snaps', () => {
   it('renders snapshot', () => {
     const props = {
       images: mockData.product.images,

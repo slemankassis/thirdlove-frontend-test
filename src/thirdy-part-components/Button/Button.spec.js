@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 
-describe('Button', () => {
+describe('Button snaps', () => {
   it('renders snapshot without props', () => {
     const component = shallow(<Button />);
     expect(escapeSnapshot(component)).toMatchSnapshot();

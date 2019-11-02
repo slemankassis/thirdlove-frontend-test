@@ -1,7 +1,7 @@
 import React from 'react';
 import ErrorBoundary from './ErrorBoundary';
 
-describe('ErrorBoundary', () => {
+describe('ErrorBoundary snaps', () => {
   it('renders snapshot with basicProps', () => {
     const basicProps = {
       selected: {

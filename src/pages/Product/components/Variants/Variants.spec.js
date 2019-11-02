@@ -1,7 +1,7 @@
 import React from 'react';
 import Variants from './Variants';
 
-describe('Variants', () => {
+describe('Variants snaps', () => {
   it('renders snapshot', () => {
     const props = {
       variants: mockData.product.variants,

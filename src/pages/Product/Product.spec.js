@@ -1,7 +1,7 @@
 import React from 'react';
 import Product from './Product';
 
-describe('Product', () => {
+describe('Product snaps', () => {
   it('renders snapshot', () => {
     const props = {
       product: mockData.product,

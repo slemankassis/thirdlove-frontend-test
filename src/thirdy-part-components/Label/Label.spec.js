@@ -1,7 +1,7 @@
 import React from 'react';
 import Label from './Label';
 
-describe('Label', () => {
+describe('Label snaps', () => {
   it('renders snapshot without Props', () => {
     const component = shallow(<Label />);
     expect(escapeSnapshot(component)).toMatchSnapshot();
