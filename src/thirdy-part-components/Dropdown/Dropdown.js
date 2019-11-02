@@ -22,6 +22,8 @@ class Dropdown extends React.Component {
   }
 
   handleChange(value) {
+    console.log(value);
+
     this.setState(() => ({
       selected: value,
     }));
@@ -35,7 +37,7 @@ class Dropdown extends React.Component {
       <label>
         {label}
         <Select
-          value={this.state.selected}
+          value={this.props.selected}
           onChange={this.handleChange}
           options={transformFilters(options)}
         />

@@ -3,6 +3,8 @@ import Dropdown from '../../../../thirdy-part-components/Dropdown';
 
 class BandVariantsContainer extends React.Component {
   render() {
+    console.log(this.props.selectedBand);
+
     return (
       <Dropdown
         selected={{ value: this.props.selectedBand, label: this.props.selectedBand }}
