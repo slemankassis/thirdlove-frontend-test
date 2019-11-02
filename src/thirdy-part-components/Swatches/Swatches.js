@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Swatches extends React.Component {
   constructor(props) {
@@ -30,5 +31,15 @@ class Swatches extends React.Component {
     );
   }
 }
+
+Swatches.propTypes = {
+  selected: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onChange: PropTypes.func,
+};
+
+Swatches.defaultProps = {
+  onChange: null,
+};
 
 export default Swatches;

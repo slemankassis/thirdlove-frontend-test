@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '../../thirdy-part-components/Button';
 import Label from '../../thirdy-part-components/Label';
 import Carousel from './components/Carousel';
@@ -21,7 +22,7 @@ class Product extends React.Component {
     this.addToCart = this.addToCart.bind(this);
 
     this.state = {
-      selectedVariantId: this.props.product.variants[0].id,
+      selectedVariantId: this.props.product.variants[0].id.toString(),
     };
   }
 
@@ -62,7 +63,7 @@ class Product extends React.Component {
 
     const selectedVariant = getObjsFromArrayByKey(variants, selectedVariantId);
     if (!selectedVariant) {
-      throw new Error('Unexpected error getting variant of product');
+      throw new Error('Unexpected error on get variant of product');
     }
 
     const transformedVariant = transformVariants([selectedVariant])[0];
@@ -76,34 +77,49 @@ class Product extends React.Component {
 
     return (
       <React.Fragment>
-        <Carousel images={transformImages(images)} />
+        {images && (
+          <Carousel images={transformImages(images)} />
+        )}
         {/* TODO: Use form with input dropdown and radios */}
-        {/* <form onSubmit={() => this.handleSubmit(title, id, variants[selectedVariantId])}> */}
         <Label className="product-title" text={title} />
         <Label className="product-color" text={`COLOR: ${color}`} />
         <Label className="product-price" text={formatPrice(price)} />
-        <Variants
-          selectedVariantId={selectedVariantId}
-          onchangeVariant={this.onchangeVariant}
-          variants={transformVariants(variants)}
-        />
+        {variants && (
+          <Variants
+            selectedVariantId={selectedVariantId}
+            onchangeVariant={this.onchangeVariant}
+            variants={transformVariants(variants)}
+          />
+        )}
         <Label className="product-stock" text={`STOCK: ${stock}`} />
-        {/* </form> */}
         <Button
-          type="action"
           text="Add to Bag"
           onClick={() => this.handleSubmit({
             title,
-            productId,
+            productId: productId.toString(),
             band,
             cup,
             selectedVariantId,
           })}
         />
-        <Description className="product-description" contentHtml={bodyHtml} />
+        {bodyHtml && (
+          <Description className="product-description" contentHtml={bodyHtml} />
+        )}
       </React.Fragment>
     );
   }
 }
+
+Product.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    images: PropTypes.arrayOf(PropTypes.object).isRequired,
+    variants: PropTypes.arrayOf(PropTypes.object).isRequired,
+    body_html: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+Product.default = {};
 
 export default Product;

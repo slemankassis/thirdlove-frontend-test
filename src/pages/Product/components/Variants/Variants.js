@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Label from '../../../../thirdy-part-components/Label';
 import Swatches from '../../../../thirdy-part-components/Swatches';
 import { removeDuplicates } from '../../../../helpers';
@@ -61,6 +62,7 @@ class Variants extends React.Component {
     const bandFilters = [];
     this.props.variants.forEach((variant) => {
       if (variant.color === this.state.selectedColor
+        // If cup is not defined then bands don't be filtered by cup
         && (!cup || variant.cup === cup)
       ) {
         bandFilters.push(variant.band);
@@ -77,6 +79,7 @@ class Variants extends React.Component {
     const cupFilters = [];
     this.props.variants.forEach((variant) => {
       if (variant.color === this.state.selectedColor
+        // If band is not defined then bands don't be filtered by band
         && (!band || variant.band === band)
       ) {
         cupFilters.push(variant.cup);
@@ -138,5 +141,11 @@ class Variants extends React.Component {
     );
   }
 }
+
+Variants.propTypes = {
+  selectedVariantId: PropTypes.string.isRequired,
+  onchangeVariant: PropTypes.func.isRequired,
+  variants: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default Variants;

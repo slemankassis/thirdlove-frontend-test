@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -18,16 +19,16 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-// ErrorBoundary.propTypes = {
-//   errorMessage: PropTypes.string,
-//   children: PropTypes.oneOfType([
-//     PropTypes.element,
-//     PropTypes.arrayOf(PropTypes.element),
-//   ]).isRequired,
-// };
+ErrorBoundary.propTypes = {
+  errorMessage: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]).isRequired,
+};
 
-// ErrorBoundary.defaultProps = {
-//   errorMessage: 'There was an error loading this component.',
-// };
+ErrorBoundary.defaultProps = {
+  errorMessage: 'There was an error loading this component.',
+};
 
 export default ErrorBoundary;
