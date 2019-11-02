@@ -1,11 +1,6 @@
 import React from 'react';
+import classnames from 'classnames';
 
-class Label extends React.Component {
-  render() {
-    return (
-      1
-    );
-  }
-}
+const Label = ({ text, className }) => <div className={classnames('label', className)}>{text}</div>;
 
 export default Label;
