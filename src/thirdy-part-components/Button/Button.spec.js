@@ -11,6 +11,7 @@ describe('Button snaps', () => {
     const fullProps = {
       text: '__TEXT__',
       className: '__CLASS_NAME__',
+      onClick: jest.fn(),
     };
 
     const component = shallow(<Button {...fullProps} />);
