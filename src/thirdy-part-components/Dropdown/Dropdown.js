@@ -22,12 +22,12 @@ class Dropdown extends React.Component {
   }
 
   handleChange(value) {
-    console.log(value);
-
-    this.setState(() => ({
-      selected: value,
-    }));
-    this.props.onChange(value);
+    if (value.value !== this.props.selected.value) {
+      this.setState(() => ({
+        selected: value,
+      }));
+      this.props.onChange(value);
+    }
   }
 
   render() {
