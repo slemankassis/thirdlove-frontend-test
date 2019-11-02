@@ -74,10 +74,6 @@ class Product extends React.Component {
       cup,
     } = transformedVariant;
 
-    console.log(transformedVariant);
-    console.log(color);
-    console.log(transformedVariant);
-
     return (
       <React.Fragment>
         <Carousel images={transformImages(images)} />
