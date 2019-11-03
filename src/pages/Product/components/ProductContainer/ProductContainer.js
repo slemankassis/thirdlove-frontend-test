@@ -5,6 +5,7 @@ import Label from '../../../../thirdy-part-components/Label';
 import Carousel from '../Carousel';
 import Variants from '../Variants';
 import Description from '../Description';
+import './product-container.scss';
 
 const ProductContainer = ({
   images,

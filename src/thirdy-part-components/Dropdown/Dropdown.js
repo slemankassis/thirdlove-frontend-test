@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './dropdown.scss';
 
 class Dropdown extends React.Component {
   constructor(props) {
@@ -26,16 +27,18 @@ class Dropdown extends React.Component {
     const { options, label } = this.props;
 
     return (
-      <label htmlFor={this.state.selected.value}>
-        {label}
-        <select onChange={this.handleChange} value={this.props.selected}>
-          {(options).map((value) => (
-            <option key={value} value={value} checked={value === this.props.selected}>
-              {value}
-            </option>
-          ))}
-        </select>
-      </label>
+      <div className="dropdown">
+        <label htmlFor={this.state.selected.value}>
+          {label}
+          <select onChange={this.handleChange} value={this.props.selected}>
+            {(options).map((value) => (
+              <option key={value} value={value} checked={value === this.props.selected}>
+                {value}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
     );
   }
 }

@@ -10,6 +10,7 @@ import {
 import Dropdown from '../../../../thirdy-part-components/Dropdown';
 import { getVariant } from '../../helpers';
 import Button from '../../../../thirdy-part-components/Button';
+import './variants.scss';
 
 class Variants extends React.Component {
   constructor(props) {
