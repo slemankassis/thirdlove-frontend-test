@@ -7,6 +7,7 @@ import {
   STOCK,
   THUMBNAIL,
   ORIGINAL_LARGE,
+  COLORS,
 } from './Constants';
 
 const transformImages = (images) => (
@@ -49,8 +50,11 @@ const getVariant = ({
   ))
 );
 
+const getColorsInHex = (colorsArray) => colorsArray.map((color) => COLORS[color]);
+
 export {
   transformImages,
   transformVariants,
   getVariant,
+  getColorsInHex,
 };

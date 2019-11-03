@@ -16,9 +16,18 @@ const getObjFromArrayByKey = (array, id) => (
   array.find((obj) => obj.id === id)
 );
 
+const swapObj = (obj) => {
+  const ret = {};
+  for (const key in obj) {
+    ret[obj[key]] = key;
+  }
+  return ret;
+};
+
 export {
   sanitizeHtml,
   removeDuplicates,
   formatPrice,
   getObjFromArrayByKey,
+  swapObj,
 };
