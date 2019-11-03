@@ -106,14 +106,14 @@ class Variants extends React.Component {
     }));
   }
 
-  onChangeBand(value) {
+  onChangeBand({ value }) {
     this.setState(() => ({
       selectedBand: value,
     }), this.getCupFilters(value));
   }
 
   // TODO: Unify onChangeBand and onChangeCup in one method called onChangeSize
-  onChangeCup(value) {
+  onChangeCup({ value }) {
     this.setState(() => ({
       selectedCup: value,
     }), this.getBandFilters(value));
