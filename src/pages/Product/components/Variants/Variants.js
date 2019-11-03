@@ -55,25 +55,6 @@ class Variants extends React.Component {
     }
   }
 
-  //   if (selectedVariant) {
-  //     if (selectedVariant.id !== this.props.selectedVariantId) {
-  //       this.props.onChangeVariant(selectedVariant.id);
-  //     }
-  //   } else {
-  //     const variant = getVariant({
-  //       variants: this.props.variants,
-  //       band: selectedBand,
-  //       cup: selectedCup,
-  //     });
-  //     if (variant) {
-  //       this.onChangeColor(variant.color);
-  //     } else {
-  //       this.getBandFilters();
-  //       this.getCupFilters();
-  //     }
-  //   }
-  // }
-
   getColorFilters() {
     const colorFilters = new Set();
     this.props.variants.forEach((variant) => {
@@ -128,7 +109,7 @@ class Variants extends React.Component {
     }), this.getCupFilters(value.value));
   }
 
-  // TODO: Unify onChangeBand and onChangeCup in one method
+  // TODO: Unify onChangeBand and onChangeCup in one method called onChangeSize
   onChangeCup(value) {
     this.setState(() => ({
       selectedCup: value.value,
