@@ -128,9 +128,9 @@ class Variants extends React.Component {
       cup,
     } = selectedVariant;
 
+    // TODO: Use form with input dropdown and radios
     return (
       <div className="variants">
-        {/* TODO: Use form with input dropdown and radios */}
         <Label className="variants-color" text={`COLOR: ${color}`} />
         <Label className="variants-price" text={formatPrice(price)} />
         <Label text="COLOR" value="__selected__" />
