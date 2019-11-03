@@ -6,8 +6,10 @@ import {
   removeDuplicates,
   getObjFromArrayByKey,
   formatPrice,
+  swapObj,
 } from '../../../../helpers';
 import Dropdown from '../../../../thirdy-part-components/Dropdown';
+import { COLORS } from '../../Constants';
 import { getVariant } from '../../helpers';
 import Button from '../../../../thirdy-part-components/Button';
 import './variants.scss';
@@ -100,7 +102,7 @@ class Variants extends React.Component {
 
   onChangeColor(value) {
     this.setState(() => ({
-      selectedColor: value,
+      selectedColor: swapObj(COLORS)[value],
     }));
   }
 
@@ -137,7 +139,7 @@ class Variants extends React.Component {
         <Label text="COLOR" value="__selected__" />
         <Swatches
           selected={this.state.selectedColor}
-          options={this.getColorFilters()}
+          colors={this.getColorFilters()}
           onChange={this.onChangeColor}
         />
         <Label className="variants-stock" text={`STOCK: ${stock}`} />
