@@ -15,9 +15,7 @@
         "src1000": "static.thirdlove.com/frontend-challenge/black-lace-plunge2/Black_LacePlunge_Black_LaceCheeky_HYB_NY_2018_03_105_a9641209-0f89-416c-8055-566054fa8c3e_1000x.jpg"
       },
       {
-        "src100": "static.thirdlove.com/frontend-challenge/peacock-lace-plunge/10_2018_Peacock_LacePlunge_Peacock_LBBikini_PDP_0096-copy_a163a89d-8810-443d-98fc-ad8232b4b259_100x.jpg",
-        "src600": "static.thirdlove.com/frontend-challenge/peacock-lace-plunge/10_2018_Peacock_LacePlunge_Peacock_LBBikini_PDP_0096-copy_a163a89d-8810-443d-98fc-ad8232b4b259_600x.jpg",
-        "src1000": "static.thirdlove.com/frontend-challenge/peacock-lace-plunge/10_2018_Peacock_LacePlunge_Peacock_LBBikini_PDP_0096-copy_a163a89d-8810-443d-98fc-ad8232b4b259_1000x.jpg"
+        "src100": "static.thirdlove.com/frontend-challenge/peacock-lace-plunge/10_2018_Peacock_LacePlunge_Peacock_LBBikini_PDP_0096-copy_a163a89d-8810-443d-98fc-ad8232b4b259_100x.jpg"
       },
       {
       },
@@ -43,16 +41,9 @@
       {
         "id": 4615727513637,
         "price": "68.00",
-        "option1": "naked-1",
-        "option2": "34D",
-        "inventory_quantity": 5
+        "option1": "naked-1"
       },
       {
-        "id": 6989722648633,
-        "price": "68.00",
-        "option1": "naked-2",
-        "option2": "34F",
-        "inventory_quantity": 100
       },
       {
         "id": 6989459193913,
