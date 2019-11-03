@@ -1,6 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Select from 'react-select';
 import './dropdown.scss';
+
+const transformFilters = (filters) => (
+  filters.reduce((transformedFilters, filter) => (
+    transformedFilters.concat({
+      value: filter,
+      label: filter,
+    })
+  ), [])
+);
 
 class Dropdown extends React.Component {
   constructor(props) {
@@ -13,8 +23,7 @@ class Dropdown extends React.Component {
     };
   }
 
-  handleChange(e) {
-    const { value } = e.target;
+  handleChange(value) {
     if (value.value !== this.props.selected.value) {
       this.setState(() => ({
         selected: value,
@@ -30,13 +39,11 @@ class Dropdown extends React.Component {
       <div className="dropdown">
         <label htmlFor={this.state.selected.value}>
           {label}
-          <select onChange={this.handleChange} value={this.props.selected}>
-            {(options).map((value) => (
-              <option key={value} value={value} checked={value === this.props.selected}>
-                {value}
-              </option>
-            ))}
-          </select>
+          <Select
+            value={this.props.selected}
+            onChange={this.handleChange}
+            options={transformFilters(options)}
+          />
         </label>
       </div>
     );

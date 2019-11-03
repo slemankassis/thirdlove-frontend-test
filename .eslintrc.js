@@ -37,7 +37,6 @@ module.exports = {
     "react/jsx-no-bind": 0,
     "react/sort-comp": 0,
     "react/jsx-props-no-spreading": 0,
-    "react/prop-types": 0,
     "arrow-body-style": 0
   },
 };

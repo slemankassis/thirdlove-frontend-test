@@ -34,7 +34,6 @@ Swatches.propTypes = {
 };
 
 Swatches.defaultProps = {
-  selected: undefined,
   onChange: null,
 };
 
