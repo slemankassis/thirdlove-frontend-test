@@ -14,26 +14,27 @@ const ProductContainer = ({
   handleSubmit,
   bodyHtml,
 }) => (
+  <React.Fragment>
+    {images && (
+    <Carousel images={images} />
+    )}
+    <Label className="product-title__label" text={title} />
+    {variants && (
+    <Variants
+      selectedVariantId={selectedVariantId}
+      onChangeVariant={onChangeVariant}
+      variants={variants}
+      handleSubmit={handleSubmit}
+    />
+    )}
+    {bodyHtml && (
     <React.Fragment>
-      {images && (
-        <Carousel images={images} />
-      )}
-      <Label className="product-title__label" text={title} />
-      {variants && (
-        <Variants
-          selectedVariantId={selectedVariantId}
-          onChangeVariant={onChangeVariant}
-          variants={variants}
-          handleSubmit={handleSubmit}
-        />
-      )}
-
-      {bodyHtml && (
-        <Label className="product-description__label" text="DESCRIPTION" />
-        <Description className="product-description" contentHtml={bodyHtml} />
-      )}
+      <Label className="product-description__label" text="DESCRIPTION" />
+      <Description className="product-description" contentHtml={bodyHtml} />
     </React.Fragment>
-  );
+    )}
+  </React.Fragment>
+);
 
 // ProductContainer.propTypes = {
 //   selectedVariantId: PropTypes.string.isRequired,
