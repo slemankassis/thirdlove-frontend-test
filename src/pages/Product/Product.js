@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../thirdy-part-components/Button';
 import Label from '../../thirdy-part-components/Label';
 import Carousel from './components/Carousel';
 import Variants from './components/Variants';
@@ -8,9 +7,9 @@ import Description from './components/Description';
 import {
   transformImages,
   transformVariants,
-  getObjFromArrayByKey,
 } from './helpers';
-import { formatPrice } from '../../helpers';
+import {
+} from '../../helpers';
 import './Product.scss';
 
 class Product extends React.Component {
@@ -33,15 +32,18 @@ class Product extends React.Component {
   }
 
   handleSubmit({
-    title,
-    productId,
     band,
     cup,
-    variantId,
   }) {
+    const {
+      product: {
+        id: productId,
+        title,
+      },
+    } = this.props;
     // eslint-disable-next-line no-alert
     alert(`Added a ${title} - ${band}${cup} to the cart`);
-    this.addToCart(productId, variantId);
+    this.addToCart(productId, this.state.selectedVariantId);
   }
 
   // eslint-disable-next-line no-unused-vars
@@ -52,7 +54,6 @@ class Product extends React.Component {
   render() {
     const {
       product: {
-        id: productId,
         title,
         images,
         variants,
@@ -61,20 +62,6 @@ class Product extends React.Component {
     } = this.props;
     const { selectedVariantId } = this.state;
 
-    const selectedVariant = getObjFromArrayByKey(variants, selectedVariantId);
-    if (!selectedVariant) {
-      throw new Error('Unexpected error on get variant of product');
-    }
-
-    const transformedVariant = transformVariants([selectedVariant])[0];
-    const {
-      color,
-      price,
-      stock,
-      band,
-      cup,
-    } = transformedVariant;
-
     return (
       <React.Fragment>
         {images && (
@@ -82,26 +69,15 @@ class Product extends React.Component {
         )}
         {/* TODO: Use form with input dropdown and radios */}
         <Label className="product-title" text={title} />
-        <Label className="product-color" text={`COLOR: ${color}`} />
-        <Label className="product-price" text={formatPrice(price)} />
         {variants && (
           <Variants
             selectedVariantId={selectedVariantId}
             onChangeVariant={this.onChangeVariant}
             variants={transformVariants(variants)}
+            handleSubmit={this.handleSubmit}
           />
         )}
-        <Label className="product-stock" text={`STOCK: ${stock}`} />
-        <Button
-          text="Add to Bag"
-          onClick={() => this.handleSubmit({
-            title,
-            productId: productId.toString(),
-            band,
-            cup,
-            selectedVariantId,
-          })}
-        />
+
         {bodyHtml && (
           <Description className="product-description" contentHtml={bodyHtml} />
         )}

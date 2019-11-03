@@ -12,8 +12,13 @@ const removeDuplicates = (array) => [...new Set(array)];
 
 const formatPrice = (price) => `$${price.split('.')[0]}`;
 
+const getObjFromArrayByKey = (array, id) => (
+  array.find((obj) => obj.id === id)
+);
+
 export {
   sanitizeHtml,
   removeDuplicates,
   formatPrice,
+  getObjFromArrayByKey,
 };

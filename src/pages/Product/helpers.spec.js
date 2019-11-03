@@ -1,8 +1,7 @@
 import {
   transformImages,
   transformVariants,
-  getSelectedVariant,
-  getObjFromArrayByKey,
+  getVariant,
 } from './helpers';
 
 expect.extend({
@@ -138,8 +137,8 @@ describe('Helpers of Product: transformVariants', () => {
   });
 });
 
-describe('Helpers of Product: getSelectedVariant', () => {
-  it('Should get the first result of an object that matches with the color, band and cup filter', () => {
+describe('Helpers of Product: getVariant', () => {
+  xit('Should get the first result of an object that matches with the color, band and cup filter', () => {
     // Arranging
     const variants = [{
       band: '32',
@@ -164,21 +163,20 @@ describe('Helpers of Product: getSelectedVariant', () => {
       color: 'naked-2',
       cup: 'D',
       id: '4615727513637',
-      option2: '32E',
+      option2: '34D',
       price: '68.00',
       stock: 5,
     }];
-    const selectedColor = 'naked-2';
-    const selectedBand = '34';
-    const selectedCup = 'D';
-
+    const color = 'naked-2';
+    const band = '34';
+    const cup = 'D';
     // Acting
-    const variant = getSelectedVariant(
+    const variant = getVariant({
       variants,
-      selectedColor,
-      selectedBand,
-      selectedCup,
-    );
+      color,
+      band,
+      cup,
+    });
     // Asserting
     expect(variant).toEqual({
       band: '34',
@@ -190,12 +188,10 @@ describe('Helpers of Product: getSelectedVariant', () => {
       stock: 5,
     });
   });
-});
 
-describe('Helpers of Product: getObjFromArrayByKey', () => {
-  it('Should get the first result of an object that matches with a key', () => {
+  it('Should get the first result of an object that matches with the band and cup filter', () => {
     // Arranging
-    const input = [{
+    const variants = [{
       band: '32',
       color: 'naked-3',
       cup: 'E',
@@ -218,19 +214,26 @@ describe('Helpers of Product: getObjFromArrayByKey', () => {
       color: 'naked-2',
       cup: 'D',
       id: '4615727513637',
-      option2: '32E',
+      option2: '34D',
       price: '68.00',
       stock: 5,
     }];
+    const band = '34';
+    const cup = 'D';
+
     // Acting
-    const result = getObjFromArrayByKey(input, '4615727513637');
+    const variant = getVariant({
+      variants,
+      band,
+      cup,
+    });
     // Asserting
-    expect(result).toEqual({
+    expect(variant).toEqual({
       band: '34',
       color: 'naked-2',
       cup: 'D',
       id: '4615727513637',
-      option2: '32E',
+      option2: '34D',
       price: '68.00',
       stock: 5,
     });

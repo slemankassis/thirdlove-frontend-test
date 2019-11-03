@@ -1,23 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Variants renders snapshot 1`] = `
-"<div>
-  <Label text='COLOR' value='__selected__' className='' />
-  <Swatches selected={[undefined]} options={{...}} onChange={[Function: bound onChangeColor]} />
-  <Dropdown selected={{...}} options={{...}} onChange={[Function: bound onChangeBand]} label='BAND SIZE' />
-  <Dropdown selected={{...}} options={{...}} onChange={[Function: bound onChangeCup]} label='CUP SIZE' />
-  <Label text='STOCK' value='__selected__' className='' />
-  <input type='submit' value='Submit' />
-</div>"
-`;
-
 exports[`Variants snaps renders snapshot 1`] = `
 "<div>
+  <Label className='product-color' text='COLOR: naked-1' />
+  <Label className='product-price' text='$68' />
   <Label text='COLOR' value='__selected__' className='' />
-  <Swatches selected={[undefined]} options={{...}} onChange={[Function: bound onChangeColor]} />
+  <Swatches selected='naked-1' options={{...}} onChange={[Function: bound onChangeColor]} />
+  <Label className='product-stock' text='STOCK: 764' />
   <Dropdown selected={{...}} options={{...}} onChange={[Function: bound onChangeBand]} label='BAND SIZE' />
   <Dropdown selected={{...}} options={{...}} onChange={[Function: bound onChangeCup]} label='CUP SIZE' />
-  <Label text='STOCK' value='__selected__' className='' />
-  <input type='submit' value='Submit' />
+  <Button text='Add to Bag' onClick={[Function: onClick]} className='' />
 </div>"
 `;

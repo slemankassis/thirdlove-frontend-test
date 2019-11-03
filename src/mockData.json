@@ -2,7 +2,7 @@
   "product": {
     "id": 357375279141,
     "title": "24/7™ Classic Perfect Coverage Bra",
-    "body_html": "<meta charset=\"utf-8\">\n<p>A slightly fuller coverage version of the bra that started it all. The 24/7™ Classic Full Coverage Bra’s signature cups are designed with hybrid memory foam that does double duty, providing softness inside and support outside. It forms to your unique shape and creates a smooth silhouette, no matter what you’re wearing. The straps are lined with supple memory foam so they stay put and never dig in, and the ballet back design ensures your straps will truly never slip. You’ll wonder how you ever lived without it.</p>\n<!-- split -->\n<ul>\n<li><span>Available in B-H, 32-46 bands</span></li>\n<li><span>Ultra-thin hybrid foam, has memory foam on the inside to form to your body, and a supportive foam on the outside</span></li>\n<li><span>Incredibly soft micro jersey fabric, knitted for maximum durability</span></li>\n<li><span>Double layer ballet back with hidden elastic smooths your silhouette</span></li>\n<li><span>Memory foam straps that won't slip </span></li>\n<li>Pleated detail at the center front</li>\n<li><span>Gold alloy hardware adds a touch of shine</span></li>\n<li><span>Foam-padded hook &amp; eye with tagless (scratch-free!) printed label</span></li>\n<li><span>Flexible nylon-coated nickel-free wires</span></li>\n<li><span>Nylon/spandex</span></li>\n</ul>",
+    "body_html": "<scrip>alert('DOMpurify doesn't work');</script><meta charset=\"utf-8\">\n<p>A slightly fuller coverage version of the bra that started it all. The 24/7™ Classic Full Coverage Bra’s signature cups are designed with hybrid memory foam that does double duty, providing softness inside and support outside. It forms to your unique shape and creates a smooth silhouette, no matter what you’re wearing. The straps are lined with supple memory foam so they stay put and never dig in, and the ballet back design ensures your straps will truly never slip. You’ll wonder how you ever lived without it.</p>\n<!-- split -->\n<ul>\n<li><span>Available in B-H, 32-46 bands</span></li>\n<li><span>Ultra-thin hybrid foam, has memory foam on the inside to form to your body, and a supportive foam on the outside</span></li>\n<li><span>Incredibly soft micro jersey fabric, knitted for maximum durability</span></li>\n<li><span>Double layer ballet back with hidden elastic smooths your silhouette</span></li>\n<li><span>Memory foam straps that won't slip </span></li>\n<li>Pleated detail at the center front</li>\n<li><span>Gold alloy hardware adds a touch of shine</span></li>\n<li><span>Foam-padded hook &amp; eye with tagless (scratch-free!) printed label</span></li>\n<li><span>Flexible nylon-coated nickel-free wires</span></li>\n<li><span>Nylon/spandex</span></li>\n</ul>",
     "images": [
       {
         "src100": "static.thirdlove.com/frontend-challenge/black-lace-plunge/Black_LacePlunge_Black_LaceCheeky_HYB_NY_2018_03_079_100x.jpg",
@@ -15,19 +15,12 @@
         "src1000": "static.thirdlove.com/frontend-challenge/black-lace-plunge2/Black_LacePlunge_Black_LaceCheeky_HYB_NY_2018_03_105_a9641209-0f89-416c-8055-566054fa8c3e_1000x.jpg"
       },
       {
-        "src100": "static.thirdlove.com/frontend-challenge/peacock-lace-plunge/10_2018_Peacock_LacePlunge_Peacock_LBBikini_PDP_0096-copy_a163a89d-8810-443d-98fc-ad8232b4b259_100x.jpg",
-        "src600": "static.thirdlove.com/frontend-challenge/peacock-lace-plunge/10_2018_Peacock_LacePlunge_Peacock_LBBikini_PDP_0096-copy_a163a89d-8810-443d-98fc-ad8232b4b259_600x.jpg",
-        "src1000": "static.thirdlove.com/frontend-challenge/peacock-lace-plunge/10_2018_Peacock_LacePlunge_Peacock_LBBikini_PDP_0096-copy_a163a89d-8810-443d-98fc-ad8232b4b259_1000x.jpg"
+        "src100": "static.thirdlove.com/frontend-challenge/peacock-lace-plunge/10_2018_Peacock_LacePlunge_Peacock_LBBikini_PDP_0096-copy_a163a89d-8810-443d-98fc-ad8232b4b259_100x.jpg"
       },
       {
-        "src100": "static.thirdlove.com/frontend-challenge/softpink-lace-contour-plunge/SoftPink_LaceContourPlunge_Product_e334cfb9-0040-404b-b755-28a6fb11f3df_100x.jpg",
-        "src600": "static.thirdlove.com/frontend-challenge/softpink-lace-contour-plunge/SoftPink_LaceContourPlunge_Product_e334cfb9-0040-404b-b755-28a6fb11f3df_600x.jpg",
-        "src1000": "static.thirdlove.com/frontend-challenge/softpink-lace-contour-plunge/SoftPink_LaceContourPlunge_Product_e334cfb9-0040-404b-b755-28a6fb11f3df_1000x.jpg"
       },
       {
-        "src100": "static.thirdlove.com/frontend-challenge/black-lace-contour/Black_LaceContourPlunge_Product-copy_aa5e3773-15d6-42df-9575-d015a0642aea_100x.jpg",
-        "src600": "static.thirdlove.com/frontend-challenge/black-lace-contour/Black_LaceContourPlunge_Product-copy_aa5e3773-15d6-42df-9575-d015a0642aea_600x.jpg",
-        "src1000": "static.thirdlove.com/frontend-challenge/black-lace-contour/Black_LaceContourPlunge_Product-copy_aa5e3773-15d6-42df-9575-d015a0642aea_1000x.jpg"
+        "src100": "static.thirdlove.com/frontend-challenge/black-lace-contour/Black_LaceContourPlunge_Product-copy_aa5e3773-15d6-42df-9575-d015a0642aea_100x.jpg"
       }
     ],
     "variants": [
@@ -48,51 +41,9 @@
       {
         "id": 4615727513637,
         "price": "68.00",
-        "option1": "naked-1",
-        "option2": "34D",
-        "inventory_quantity": 5
+        "option1": "naked-1"
       },
       {
-        "id": 4615727906853,
-        "price": "68.00",
-        "option1": "naked-1",
-        "option2": "38E",
-        "inventory_quantity": 6
-      },
-      {
-        "id": 6989722583097,
-        "option1": "naked-2",
-        "option2": "32E",
-        "price": "68.00",
-        "inventory_quantity": 1109
-      },
-      {
-        "id": 6989722615865,
-        "option1": "naked-2",
-        "option2": "32F",
-        "price": "68.00",
-        "inventory_quantity": 1109
-      },
-      {
-        "id": 4615861469221,
-        "price": "68.00",
-        "option1": "naked-2",
-        "option2": "34D",
-        "inventory_quantity": 1797
-      },
-      {
-        "id": 6989722648634,
-        "price": "68.00",
-        "option1": "naked-2",
-        "option2": "34E",
-        "inventory_quantity": 0
-      },
-      {
-        "id": 6989722648633,
-        "price": "68.00",
-        "option1": "naked-2",
-        "option2": "34F",
-        "inventory_quantity": 100
       },
       {
         "id": 6989459193913,
@@ -107,20 +58,6 @@
         "option1": "naked-3",
         "option2": "32F",
         "inventory_quantity": 320
-      },
-      {
-        "id": 6989459292217,
-        "price": "68.00",
-        "option1": "naked-3",
-        "option2": "34F",
-        "inventory_quantity": 264
-      },
-      {
-        "id": 4615725842469,
-        "price": "68.00",
-        "option1": "naked-4",
-        "option2": "32E",
-        "inventory_quantity": 214
       },
       {
         "id": 4615725908005,

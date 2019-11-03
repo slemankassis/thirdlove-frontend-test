@@ -2,9 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Label from '../../../../thirdy-part-components/Label';
 import Swatches from '../../../../thirdy-part-components/Swatches';
-import { removeDuplicates } from '../../../../helpers';
+import {
+  removeDuplicates,
+  getObjFromArrayByKey,
+  formatPrice,
+} from '../../../../helpers';
 import Dropdown from '../../../../thirdy-part-components/Dropdown';
-import { getSelectedVariant } from '../../helpers';
+import { getVariant } from '../../helpers';
+import Button from '../../../../thirdy-part-components/Button';
 
 class Variants extends React.Component {
   constructor(props) {
@@ -33,12 +38,12 @@ class Variants extends React.Component {
   componentDidUpdate() {
     const { selectedColor, selectedBand, selectedCup } = this.state;
 
-    const selectedVariant = getSelectedVariant(
-      this.props.variants,
-      selectedColor,
-      selectedBand,
-      selectedCup,
-    );
+    const selectedVariant = getVariant({
+      variants: this.props.variants,
+      color: selectedColor,
+      band: selectedBand,
+      cup: selectedCup,
+    });
 
     if (selectedVariant) {
       if (selectedVariant.id !== this.props.selectedVariantId) {
@@ -104,6 +109,7 @@ class Variants extends React.Component {
     }), this.getCupFilters(value.value));
   }
 
+  // TODO: Unify onChangeBand and onChangeCup in one method called onChangeSize
   onChangeCup(value) {
     this.setState(() => ({
       selectedCup: value.value,
@@ -111,32 +117,44 @@ class Variants extends React.Component {
   }
 
   render() {
+    const selectedVariant = getObjFromArrayByKey(this.props.variants, this.props.selectedVariantId)
+      || this.props.variants[0];
+
+    const {
+      color,
+      price,
+      stock,
+      band,
+      cup,
+    } = selectedVariant;
+
     return (
       <div>
-        {/* <form onSubmit={() => this.handleSubmit(product = {})}> */}
+        <Label className="product-color" text={`COLOR: ${color}`} />
+        <Label className="product-price" text={formatPrice(price)} />
         <Label text="COLOR" value="__selected__" />
         <Swatches
           selected={this.state.selectedColor}
           options={this.getColorFilters()}
           onChange={this.onChangeColor}
         />
+        <Label className="product-stock" text={`STOCK: ${stock}`} />
         <Dropdown
-          // selectedColor={this.state.selectedColor}
           selected={{ value: this.state.selectedBand, label: this.state.selectedBand }}
           options={this.state.bandFilters}
           onChange={this.onChangeBand}
           label="BAND SIZE"
         />
         <Dropdown
-          // selectedColor={this.state.selectedColor}
           selected={{ value: this.state.selectedCup, label: this.state.selectedCup }}
           options={this.state.cupFilters}
           onChange={this.onChangeCup}
           label="CUP SIZE"
         />
-        <Label text="STOCK" value="__selected__" />
-        <input type="submit" value="Submit" />
-        {/* </form> */}
+        <Button
+          text="Add to Bag"
+          onClick={() => this.props.handleSubmit({ color, band, cup })}
+        />
       </div>
     );
   }
@@ -146,6 +164,7 @@ Variants.propTypes = {
   selectedVariantId: PropTypes.string.isRequired,
   onChangeVariant: PropTypes.func.isRequired,
   variants: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default Variants;

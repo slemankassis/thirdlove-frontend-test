@@ -1,11 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Description renders snapshot 1`] = `
-"<div className=''>
-  <div dangerouslySetInnerHTML={{...}} />
-</div>"
-`;
-
 exports[`Description snaps renders snapshot 1`] = `
 "<div className=''>
   <div dangerouslySetInnerHTML={{...}} />
