@@ -1,9 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Label from '../../thirdy-part-components/Label';
-import Carousel from './components/Carousel';
-import Variants from './components/Variants';
-import Description from './components/Description';
 import {
   transformImages,
   transformVariants,
@@ -11,6 +7,7 @@ import {
 import {
 } from '../../helpers';
 import './Product.scss';
+import ProductContainer from './components/ProductContainer/ProductContainer';
 
 class Product extends React.Component {
   constructor(props) {
@@ -48,7 +45,7 @@ class Product extends React.Component {
 
   // eslint-disable-next-line no-unused-vars
   addToCart(productId, varianId) { // eslint-disable-line class-methods-use-this
-    // TODO: Call service with productId and variantId and remove eslint exceptions
+    // TODO: Call api service with productId and variantId and remove eslint exceptions
   }
 
   render() {
@@ -62,26 +59,17 @@ class Product extends React.Component {
     } = this.props;
     const { selectedVariantId } = this.state;
 
+    // TODO: Use form with input dropdown and radios
     return (
-      <React.Fragment>
-        {images && (
-          <Carousel images={transformImages(images)} />
-        )}
-        {/* TODO: Use form with input dropdown and radios */}
-        <Label className="product-title" text={title} />
-        {variants && (
-          <Variants
-            selectedVariantId={selectedVariantId}
-            onChangeVariant={this.onChangeVariant}
-            variants={transformVariants(variants)}
-            handleSubmit={this.handleSubmit}
-          />
-        )}
-
-        {bodyHtml && (
-          <Description className="product-description" contentHtml={bodyHtml} />
-        )}
-      </React.Fragment>
+      <ProductContainer
+        images={transformImages(images)}
+        selectedVariantId={selectedVariantId}
+        onChangeVariant={this.onChangeVariant}
+        variants={transformVariants(variants)}
+        handleSubmit={this.handleSubmit}
+        title={title}
+        contentHtml={bodyHtml}
+      />
     );
   }
 }
@@ -95,7 +83,5 @@ Product.propTypes = {
     body_html: PropTypes.string.isRequired,
   }).isRequired,
 };
-
-Product.default = {};
 
 export default Product;
