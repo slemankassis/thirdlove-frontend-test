@@ -10,6 +10,7 @@ import {
 import Dropdown from '../../../../thirdy-part-components/Dropdown';
 import { getVariant } from '../../helpers';
 import Button from '../../../../thirdy-part-components/Button';
+import './variants.scss';
 
 class Variants extends React.Component {
   constructor(props) {
@@ -105,15 +106,15 @@ class Variants extends React.Component {
 
   onChangeBand(value) {
     this.setState(() => ({
-      selectedBand: value.value,
-    }), this.getCupFilters(value.value));
+      selectedBand: value,
+    }), this.getCupFilters(value));
   }
 
   // TODO: Unify onChangeBand and onChangeCup in one method called onChangeSize
   onChangeCup(value) {
     this.setState(() => ({
-      selectedCup: value.value,
-    }), this.getBandFilters(value.value));
+      selectedCup: value,
+    }), this.getBandFilters(value));
   }
 
   render() {
@@ -129,28 +130,35 @@ class Variants extends React.Component {
     } = selectedVariant;
 
     return (
-      <div>
-        <Label className="product-color" text={`COLOR: ${color}`} />
-        <Label className="product-price" text={formatPrice(price)} />
+      <div className="variants">
+        {/* TODO: Use form with input dropdown and radios */}
+        <Label className="variants-color" text={`COLOR: ${color}`} />
+        <Label className="variants-price" text={formatPrice(price)} />
         <Label text="COLOR" value="__selected__" />
         <Swatches
           selected={this.state.selectedColor}
           options={this.getColorFilters()}
           onChange={this.onChangeColor}
         />
-        <Label className="product-stock" text={`STOCK: ${stock}`} />
-        <Dropdown
-          selected={{ value: this.state.selectedBand, label: this.state.selectedBand }}
-          options={this.state.bandFilters}
-          onChange={this.onChangeBand}
-          label="BAND SIZE"
-        />
-        <Dropdown
-          selected={{ value: this.state.selectedCup, label: this.state.selectedCup }}
-          options={this.state.cupFilters}
-          onChange={this.onChangeCup}
-          label="CUP SIZE"
-        />
+        <Label className="variants-stock" text={`STOCK: ${stock}`} />
+        <div className="variants-sizes__container">
+          <div className="variants-band__selector">
+            <Dropdown
+              selected={{ value: this.state.selectedBand, label: this.state.selectedBand }}
+              options={this.state.bandFilters}
+              onChange={this.onChangeBand}
+              label="BAND SIZE"
+            />
+          </div>
+          <div className="variants-cup__selector">
+            <Dropdown
+              selected={{ value: this.state.selectedCup, label: this.state.selectedCup }}
+              options={this.state.cupFilters}
+              onChange={this.onChangeCup}
+              label="CUP SIZE"
+            />
+          </div>
+        </div>
         <Button
           text="Add to Bag"
           onClick={() => this.props.handleSubmit({ color, band, cup })}
