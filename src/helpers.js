@@ -8,9 +8,14 @@ const sanitizeHtml = (html, allowedTags) => {
   );
 };
 
-const removeDuplicates = (array) => [...new Set(array)];
+const removeDuplicatesArray = (array) => [...new Set(array)];
 
-const formatPrice = (price) => `$${price.split('.')[0]}`;
+const formatPrice = (price) => {
+  const [units, cents] = price.split('.');
+  return `$${units}${cents !== '00' ? `.${cents}` : ''}`;
+};
+
+const formatColor = (color) => color.split('-')[0].toUpperCase();
 
 const getObjFromArrayByKey = (array, id) => (
   array.find((obj) => obj.id === id)
@@ -27,8 +32,9 @@ const swapObj = (obj) => {
 
 export {
   sanitizeHtml,
-  removeDuplicates,
+  removeDuplicatesArray,
   formatPrice,
+  formatColor,
   getObjFromArrayByKey,
   swapObj,
 };

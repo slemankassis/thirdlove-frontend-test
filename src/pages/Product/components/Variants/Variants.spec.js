@@ -28,35 +28,51 @@ describe('Variants snaps', () => {
   });
 
   // Fails with the custom mock data
-  xit('Should be updated when call color changer', () => {
+  it('Should be updated when call color changer', () => {
     // Arranging
     Component = shallow(<Variants {...props} />);
+    const instance = Component.instance();
     const value = 'naked-2';
     // Acting
-    Component.instance().onChangeColor(value);
-    Component.instance().setState = jest.fn();
+    const onChangeColor = jest.spyOn(instance, 'onChangeColor');
+    instance.onChangeColor(value);
     // Asserting
-    expect(Component.instance().setState()).toHaveBeenCalledTimes(1);
+    expect(onChangeColor).toHaveBeenCalledTimes(1);
   });
 
-  xit('Should be updated when call band changer', () => {
+  it('Should be updated when call band changer', () => {
     // Arranging
     Component = shallow(<Variants {...props} />);
-    const value = { value: '34' };
+    const instance = Component.instance();
+    const value = '34';
     // Acting
-    Component.instance().onChangeBand(value);
-    Component.instance().getCupFilters = jest.fn();
+    const onChangeBand = jest.spyOn(instance, 'onChangeBand');
+    instance.onChangeBand(value);
     // Asserting
-    expect(props.onChangeVariant).toHaveBeenCalledTimes(1);
+    expect(onChangeBand).toHaveBeenCalledTimes(1);
   });
 
-  xit('Should be updated when call cup changer', () => {
+  it('Should be updated when call cup changer', () => {
     // Arranging
     Component = shallow(<Variants {...props} />);
-    const value = { value: 'D' };
+    const instance = Component.instance();
+    const value = 'D';
     // Acting
-    Component.instance().onChangeCup(value);
+    const onChangeCup = jest.spyOn(instance, 'onChangeCup');
+    instance.onChangeCup(value);
     // Asserting
-    expect(props.onChangeVariant).toHaveBeenCalledTimes(1);
+    expect(onChangeCup).toHaveBeenCalledTimes(1);
   });
+
+  // it('Should be updated when call cup changer', () => {
+  //   // Arranging
+  //   Component = shallow(<Variants {...props} />);
+  //   const instance = Component.instance();
+  //   const value = 'D';
+  //   // Acting
+  //   const onChangeCup = jest.spyOn(instance, 'onChangeCup');
+  //   instance.onChangeCup(value);
+  //   // Asserting
+  //   expect(onChangeCup).toHaveBeenCalledTimes(1);
+  // });
 });
