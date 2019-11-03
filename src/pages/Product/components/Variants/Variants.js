@@ -8,7 +8,7 @@ import {
   formatPrice,
 } from '../../../../helpers';
 import Dropdown from '../../../../thirdy-part-components/Dropdown';
-import { getSelectedVariant } from '../../helpers';
+import { getVariant } from '../../helpers';
 import Button from '../../../../thirdy-part-components/Button';
 
 class Variants extends React.Component {
@@ -38,12 +38,12 @@ class Variants extends React.Component {
   componentDidUpdate() {
     const { selectedColor, selectedBand, selectedCup } = this.state;
 
-    const selectedVariant = getSelectedVariant(
-      this.props.variants,
-      selectedColor,
-      selectedBand,
-      selectedCup,
-    );
+    const selectedVariant = getVariant({
+      variants: this.props.variants,
+      color: selectedColor,
+      band: selectedBand,
+      cup: selectedCup,
+    });
 
     if (selectedVariant) {
       if (selectedVariant.id !== this.props.selectedVariantId) {
@@ -54,6 +54,25 @@ class Variants extends React.Component {
       this.getCupFilters();
     }
   }
+
+  //   if (selectedVariant) {
+  //     if (selectedVariant.id !== this.props.selectedVariantId) {
+  //       this.props.onChangeVariant(selectedVariant.id);
+  //     }
+  //   } else {
+  //     const variant = getVariant({
+  //       variants: this.props.variants,
+  //       band: selectedBand,
+  //       cup: selectedCup,
+  //     });
+  //     if (variant) {
+  //       this.onChangeColor(variant.color);
+  //     } else {
+  //       this.getBandFilters();
+  //       this.getCupFilters();
+  //     }
+  //   }
+  // }
 
   getColorFilters() {
     const colorFilters = new Set();
@@ -109,6 +128,7 @@ class Variants extends React.Component {
     }), this.getCupFilters(value.value));
   }
 
+  // TODO: Unify onChangeBand and onChangeCup in one method
   onChangeCup(value) {
     this.setState(() => ({
       selectedCup: value.value,
@@ -118,6 +138,7 @@ class Variants extends React.Component {
   render() {
     const selectedVariant = getObjFromArrayByKey(this.props.variants, this.props.selectedVariantId)
       || this.props.variants[0];
+
     const {
       color,
       price,

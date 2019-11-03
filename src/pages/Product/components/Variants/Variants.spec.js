@@ -1,5 +1,9 @@
 import React from 'react';
 import Variants from './Variants';
+import {
+  transformVariants,
+} from '../../helpers';
+import mockData from '../../../../mockData-original';
 
 describe('Variants snaps', () => {
   let props = {};
@@ -7,35 +11,9 @@ describe('Variants snaps', () => {
 
   beforeEach(() => {
     props = {
-      variants: [{
-        band: '32',
-        color: 'naked-3',
-        cup: 'E',
-        id: '6989569458233',
-        option2: '32E',
-        price: '68.00',
-        stock: 764,
-      },
-      {
-        band: '32',
-        color: 'naked-1',
-        cup: 'F',
-        id: '6989569491001',
-        option2: '32F',
-        price: '68.00',
-        stock: 158,
-      },
-      {
-        band: '34',
-        color: 'naked-2',
-        cup: 'D',
-        id: '4615727513637',
-        option2: '32E',
-        price: '68.00',
-        stock: 5,
-      }],
+      variants: transformVariants(mockData.product.variants),
       onChangeVariant: jest.fn(),
-      selectedVariantId: '__SELECTED_VARIANT_ID__',
+      selectedVariantId: '6989569458233',
       handleSubmit: jest.fn(),
     };
   });
@@ -49,8 +27,18 @@ describe('Variants snaps', () => {
     expect(escapeSnapshot(Component)).toMatchSnapshot();
   });
 
-  // This tests enter in a infinite loop, maybe for the jest version
-  xit('Should be updated when color changes', () => {
+  it('Should be updated when call color changer', () => {
+    // Arranging
+    Component = shallow(<Variants {...props} />);
+    const value = 'naked-2';
+    // Acting
+    Component.instance().onChangeColor(value);
+    // Asserting
+    expect(props.onChangeVariant).toHaveBeenCalledTimes(1);
+  });
+
+  // Fails with the custom mock data
+  it('Should be updated when call color change', () => {
     // Arranging
     Component = shallow(<Variants {...props} />);
     const value = 'naked-2';
