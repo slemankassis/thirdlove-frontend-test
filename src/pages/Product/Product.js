@@ -68,7 +68,7 @@ class Product extends React.Component {
         variants={transformVariants(variants)}
         handleSubmit={this.handleSubmit}
         title={title}
-        contentHtml={bodyHtml}
+        bodyHtml={bodyHtml}
       />
     );
   }

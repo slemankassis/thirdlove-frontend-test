@@ -32,13 +32,13 @@ $ig-grey: #888888 !default;
   display: flex;
   flex-direction: row-reverse;
   margin-top: 68px;
-  position: absolute;
+  // position: absolute;
 }
 
 .image-gallery-image {
   height: 726px;
   width: 652px;
-  position: relative;
+  // position: relative;
   scroll-margin-left: 241px;
 }
 
