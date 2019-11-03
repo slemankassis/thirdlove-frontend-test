@@ -131,17 +131,21 @@ class Variants extends React.Component {
       cup,
     } = selectedVariant;
 
+    const colors = this.getColorFilters();
+
     // TODO: Use form with input dropdown and radios
     return (
       <div className="variants">
         <Label className="variants-color" text={`COLOR: ${color}`} />
         <Label className="variants-price" text={formatPrice(price)} />
         <Label text="COLOR" value="__selected__" />
-        <Swatches
-          selected={this.state.selectedColor}
-          colors={this.getColorFilters()}
-          onChange={this.onChangeColor}
-        />
+        {colors && (
+          <Swatches
+            selected={this.state.selectedColor}
+            colors={colors}
+            onChange={this.onChangeColor}
+          />
+        )}
         <Label className="variants-stock" text={`STOCK: ${stock}`} />
         <div className="variants-sizes__container">
           <div className="variants-band__selector">

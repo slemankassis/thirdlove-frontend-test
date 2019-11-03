@@ -18,7 +18,8 @@ const getObjFromArrayByKey = (array, id) => (
 
 const swapObj = (obj) => {
   const ret = {};
-  for (const key in obj) {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const key in obj) { // eslint-disable-line guard-for-in
     ret[obj[key]] = key;
   }
   return ret;

@@ -1,14 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Variants snaps renders snapshot 1`] = `
-"<div>
-  <Label className='product-color' text='COLOR: naked-1' />
-  <Label className='product-price' text='$68' />
+"<div className='variants'>
+  <Label className='variants-color' text='COLOR: naked-1' />
+  <Label className='variants-price' text='$68' />
   <Label text='COLOR' value='__selected__' className='' />
-  <Swatches selected='naked-1' options={{...}} onChange={[Function: bound onChangeColor]} />
-  <Label className='product-stock' text='STOCK: 764' />
-  <Dropdown selected={{...}} options={{...}} onChange={[Function: bound onChangeBand]} label='BAND SIZE' />
-  <Dropdown selected={{...}} options={{...}} onChange={[Function: bound onChangeCup]} label='CUP SIZE' />
+  <Swatches selected='naked-1' colors={{...}} onChange={[Function: bound onChangeColor]} />
+  <Label className='variants-stock' text='STOCK: 764' />
+  <div className='variants-sizes__container'>
+    <div className='variants-band__selector'>
+      <Dropdown selected={{...}} options={{...}} onChange={[Function: bound onChangeBand]} label='BAND SIZE' />
+    </div>
+    <div className='variants-cup__selector'>
+      <Dropdown selected={{...}} options={{...}} onChange={[Function: bound onChangeCup]} label='CUP SIZE' />
+    </div>
+  </div>
   <Button text='Add to Bag' onClick={[Function: onClick]} className='' />
 </div>"
 `;

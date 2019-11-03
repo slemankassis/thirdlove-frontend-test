@@ -1,19 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Product snaps Should be updated when selected variant id changes 1`] = `
-"<Fragment>
-  <Carousel images={{...}} />
-  <Label className='product-title' text='__TITLE' />
-  <Variants selectedVariantId='4615727513637' onChangeVariant={[Function: bound onChangeVariant]} variants={{...}} handleSubmit={[Function: bound handleSubmit]} />
-  <Description className='product-description' contentHtml='<div>__BODY_HTML__</div>' />
-</Fragment>"
-`;
+exports[`Product snaps Should be updated when selected variant id changes 1`] = `"<ProductContainer images={{...}} selectedVariantId='4615727513637' onChangeVariant={[Function: bound onChangeVariant]} variants={{...}} handleSubmit={[Function: bound handleSubmit]} title='__TITLE' bodyHtml='<div>__BODY_HTML__</div>' />"`;
 
-exports[`Product snaps renders snapshot 1`] = `
-"<Fragment>
-  <Carousel images={{...}} />
-  <Label className='product-title' text='__TITLE' />
-  <Variants selectedVariantId='6989569458233' onChangeVariant={[Function: bound onChangeVariant]} variants={{...}} handleSubmit={[Function: bound handleSubmit]} />
-  <Description className='product-description' contentHtml='<div>__BODY_HTML__</div>' />
-</Fragment>"
-`;
+exports[`Product snaps renders snapshot 1`] = `"<ProductContainer images={{...}} selectedVariantId='6989569458233' onChangeVariant={[Function: bound onChangeVariant]} variants={{...}} handleSubmit={[Function: bound handleSubmit]} title='__TITLE' bodyHtml='<div>__BODY_HTML__</div>' />"`;
