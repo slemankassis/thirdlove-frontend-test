@@ -1,87 +1,49 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
-  transformImages,
-  transformVariants,
-} from './helpers';
-import {
-} from '../../helpers';
+  THUMBNAIL,
+  ORIGINAL_LARGE,
+  COLOR_VARIANTS,
+  SIZE_VARIANTS,
+  QTY_CHARS_FOR_BAND_SIZES,
+  ID,
+  PRICE,
+  STOCK,
+} from './Constants';
+import Carousel from './components/Carousel';
+import ColorVariantsContainer from './components/ColorVariantsContainer';
+import Description from './components/Description';
 import './Product.scss';
-import ProductContainer from './components/ProductContainer/ProductContainer';
 
-class Product extends React.Component {
-  constructor(props) {
-    super(props);
+const transformImages = (images) => (
+  images.reduce((transformedImages, image) => (
+    transformedImages.concat({
+      thumbnail: `https://${image[THUMBNAIL]}`,
+      original: `https://${image[ORIGINAL_LARGE]}`,
+    })
+  ), [])
+);
 
-    this.onChangeVariant = this.onChangeVariant.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.addToCart = this.addToCart.bind(this);
+const transformVariants = (variants) => (
+  variants.reduce((transformedVariants, variant) => (variant[STOCK] >= 10
+    ? transformedVariants.concat({
+      id: variant[ID],
+      price: variant[PRICE],
+      stock: variant[STOCK],
+      color: variant[COLOR_VARIANTS],
+      [SIZE_VARIANTS]: variant[SIZE_VARIANTS],
+      band: `${variant[SIZE_VARIANTS][0]}${variant[SIZE_VARIANTS][1]}`,
+      cup: variant[SIZE_VARIANTS].slice(QTY_CHARS_FOR_BAND_SIZES),
+    })
+    : transformedVariants
+  ), [])
+);
 
-    this.state = {
-      selectedVariantId: this.props.product.variants[0].id.toString(),
-    };
-  }
-
-  onChangeVariant(value) {
-    this.setState(() => ({
-      selectedVariantId: value,
-    }));
-  }
-
-  handleSubmit({
-    band,
-    cup,
-  }) {
-    const {
-      product: {
-        id: productId,
-        title,
-      },
-    } = this.props;
-    // eslint-disable-next-line no-alert
-    alert(`Added a ${title} - ${band}${cup} to the cart`);
-    this.addToCart(productId, this.state.selectedVariantId);
-  }
-
-  // eslint-disable-next-line no-unused-vars
-  addToCart(productId, varianId) { // eslint-disable-line class-methods-use-this
-    // TODO: Call api service with productId and variantId and remove eslint exceptions
-  }
-
-  render() {
-    const {
-      product: {
-        title,
-        images,
-        variants,
-        body_html: bodyHtml,
-      },
-    } = this.props;
-    const { selectedVariantId } = this.state;
-
-    // TODO: Use form with input dropdown and radios
-    return (
-      <ProductContainer
-        images={transformImages(images)}
-        selectedVariantId={selectedVariantId}
-        onChangeVariant={this.onChangeVariant}
-        variants={transformVariants(variants)}
-        handleSubmit={this.handleSubmit}
-        title={title}
-        bodyHtml={bodyHtml}
-      />
-    );
-  }
-}
-
-Product.propTypes = {
-  product: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    images: PropTypes.arrayOf(PropTypes.object).isRequired,
-    variants: PropTypes.arrayOf(PropTypes.object).isRequired,
-    body_html: PropTypes.string.isRequired,
-  }).isRequired,
-};
+const Product = ({ product: { images, variants, body_html: bodyHtml } }) => (
+  <React.Fragment>
+    <Carousel images={transformImages(images)} />
+    <ColorVariantsContainer variants={transformVariants(variants)} />
+    <Description contentHtml={bodyHtml} className="product-description" />
+  </React.Fragment>
+);
 
 export default Product;

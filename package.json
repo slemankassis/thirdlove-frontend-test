@@ -7,21 +7,16 @@
     "classnames": "^2.2.6",
     "dompurify": "^2.0.7",
     "node-sass": "^4.13.0",
-    "prop-types": "^15.7.2",
     "react": "^16.11.0",
-    "react-bootstrap": "^1.0.0-beta.14",
-    "react-color": "^2.17.3",
     "react-dom": "^16.11.0",
     "react-image-gallery": "^0.9.1",
     "react-scripts": "3.2.0",
-    "react-select": "^3.0.8",
-    "reactstrap": "^8.1.1"
+    "react-select": "^3.0.8"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
     "lint": "eslint src/**.js",
     "browserslist": "npx browserslist"
   },
@@ -51,19 +46,11 @@
   "author": "Sleman Kassis",
   "license": "ISC",
   "devDependencies": {
-    "@testing-library/react-hooks": "^3.1.1",
-    "axios": "^0.19.0",
-    "axios-mock-adapter": "^1.17.0",
-    "debug": "^4.1.1",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^1.7.0",
-    "jest-enzyme": "^7.1.2",
-    "react-test-renderer": "^16.11.0"
+    "eslint-plugin-react-hooks": "^1.7.0"
   }
 }

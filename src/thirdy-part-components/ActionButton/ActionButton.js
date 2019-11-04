@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Label extends React.Component {
+class ActionButton extends React.Component {
   render() {
     return (
       1
@@ -8,4 +8,4 @@ class Label extends React.Component {
   }
 }
 
-export default Label;
+export default ActionButton;
