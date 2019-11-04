@@ -26,4 +26,4 @@ const useFetch = (url) => {
   ];
 };
 
-export { useFetch };
+export default { useFetch };
