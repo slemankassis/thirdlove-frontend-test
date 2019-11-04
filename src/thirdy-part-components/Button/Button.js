@@ -1,23 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { Button } from 'reactstrap';
+import './button.scss';
 
-const Button = ({ text, onClick, className }) => (
-  <button className={classnames(text, className)} type="button" onClick={onClick}>
+const Buttonn = ({ text, onClick, className }) => (
+  <Button className={classnames(className)} type="button" onClick={onClick}>
     {text}
-  </button>
+  </Button>
 );
 
-Button.propTypes = {
+Buttonn.propTypes = {
   text: PropTypes.string,
   className: PropTypes.string,
   onClick: PropTypes.func,
 };
 
-Button.defaultProps = {
+Buttonn.defaultProps = {
   text: '',
   className: '',
   onClick: () => { },
 };
 
-export default Button;
+export default Buttonn;
