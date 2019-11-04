@@ -2,6 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 [Live demo here](https://slemankassis.github.io/thirdlove-frontend-test/)
 
+## Run project
+
+`npm rebuild node-sass && git checkout master && npm i && npm start`
 
 ## Available Scripts
 
