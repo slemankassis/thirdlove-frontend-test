@@ -1,3 +1,5 @@
+@import "./../../../../styles/variables.scss";
+
 .variants-sizes__container {
   display: flex;
   justify-content: center;
@@ -8,11 +10,44 @@
 }
 
 .product-description__content {
-  display: grid;
+  @media (min-width: $breakpoint-desktop) {
+    display: grid;
+  }
 }
 
 .full-size{
   width: 100%;
   display: grid;
   background-color: black;
+}
+
+.variants-submit__button {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: OpenSans;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 1.5px;
+}
+
+.product-description {
+  font-family: Montserrat;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.77;
+  letter-spacing: normal;
+  color: #444444;
+
+  @media (min-width: $breakpoint-tablet) {
+    display: grid;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    display: grid;
+    display: table-caption;
+  }
 }

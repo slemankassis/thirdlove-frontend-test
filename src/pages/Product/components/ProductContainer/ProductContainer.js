@@ -43,12 +43,12 @@ const ProductContainer = ({
         </Col>
       </Row>
       <Col>
-        {bodyHtml && (
-          <Row md="auto" className="product-description">
-            <hr className="division" />
-            <Description className="product-description__content" contentHtml={bodyHtml} />
-          </Row>
-        )}
+      {bodyHtml && (
+        <Row xs="12" className="product-description">
+          <hr className="division" />
+          <Description className="product-description__content" contentHtml={bodyHtml} />
+        </Row>
+      )}
       </Col>
     </Container>
   );
