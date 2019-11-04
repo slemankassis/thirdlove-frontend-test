@@ -4,7 +4,6 @@
 $ig-grey: #888888 !default;
 
 .image-gallery {
-  display: none;
 }
 
 .image-gallery-right-nav,
@@ -19,36 +18,35 @@ $ig-grey: #888888 !default;
   display: none;
 }
 
-@media (min-width: $breakpoint-desktop) {
-  .image-gallery-thumbnails-wrapper {
-    display: inline-block;
-  }
+// @media (min-width: $breakpoint-desktop) {
+.image-gallery-thumbnails-wrapper {
+  display: inline-block;
+}
 
-  .image-gallery-thumbnails-container {
-    display: flex;
-    flex-direction: column;
-  }
+.image-gallery-thumbnails-container {
+  display: flex;
+  flex-direction: column;
+}
 
-  .image-gallery-content {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-top: 68px;
-    position: absolute;
-  }
+.image-gallery-content {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 68px;
+  // position: absolute;
+}
 
-  .image-gallery-image {
-    height: 726px;
-    width: 652px;
-    position: relative;
-    scroll-margin-left: 241px;
-  }
+.image-gallery-image {
+  height: 726px;
+  width: 652px;
+  // position: relative;
+  scroll-margin-left: 241px;
+}
 
-  .image-gallery-thumbnails-container {
-    align-items: center;
+.image-gallery-thumbnails-container {
+  align-items: center;
 
-    .image-gallery-thumbnail {
-      width: 74px;
-      height: 82px;
-    }
+  .image-gallery-thumbnail {
+    width: 74px;
+    height: 82px;
   }
 }
