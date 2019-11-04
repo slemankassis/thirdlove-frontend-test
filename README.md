@@ -1,10 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 [Live demo here](https://slemankassis.github.io/thirdlove-frontend-test/)
-## Run the project local
 
+## Run project
 
-* git checkout master && run npm i && npm start
+`npm rebuild node-sass && git checkout master && npm i && npm start`
 
 ## Available Scripts
 
@@ -37,6 +37,7 @@ First mobile
 
 ## Next steps
 
+* Fix the error with node sass when run the app at first time
 * Fix the Warning _componentWillReceiveProps has been renamed, and is not recommended for use._ in CirclePicker component.
 * Add logger.
 * Add error handling.
@@ -44,7 +45,7 @@ First mobile
 * Use of ErrorBoundary component.
 * Testing e2e.
 * Unit testing of more methods in the components.
-* Add coverage reports like Istambul (--coverage is not available, see (here)[https://github.com/facebook/create-react-app/issues/7407]
+* Add coverage reports like Istambul (--coverage is not available, see (here)[https://github.com/facebook/create-react-app/issues/7407])
 * More code comments.
 * Change images for screen resolution. This app only uses the original and thumbnail. It is a action item in order to improve performance.
 * Add picker points in the gallery carousel for easy change of the showcase.
