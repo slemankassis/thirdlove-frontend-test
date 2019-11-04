@@ -4,6 +4,7 @@ import MockAdapter from 'axios-mock-adapter';
 
 import { useFetch } from './hooks';
 
+// Fix this test
 xit('useFetch performs GET request', async () => {
   const initialValue = [];
   const mock = new MockAdapter(axios);

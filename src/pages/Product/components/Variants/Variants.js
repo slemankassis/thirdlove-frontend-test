@@ -162,6 +162,7 @@ class Variants extends React.Component {
           </div>
         </div>
         <Button
+          className="variants-submit__button full-size"
           text="Add to Bag"
           onClick={() => this.props.handleSubmit({ color, band, cup })}
         />

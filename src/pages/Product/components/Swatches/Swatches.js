@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CirclePicker } from 'react-color';
 import { getColorsInHex } from '../../helpers';
+import './swatches.scss';
 
 class Swatches extends React.Component {
   constructor(props) {
