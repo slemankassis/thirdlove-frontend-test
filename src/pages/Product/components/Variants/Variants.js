@@ -1,23 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Label from '../../../../thirdy-part-components/Label';
-import Swatches from '../../../../thirdy-part-components/Swatches';
+import Swatches from '../Swatches';
 import {
-  removeDuplicates,
+  Dropdown,
+  Label,
+  Button,
+} from '../../../../thirdy-part-components';
+import {
+  removeDuplicatesArray,
   getObjFromArrayByKey,
   formatPrice,
   swapObj,
 } from '../../../../helpers';
-import Dropdown from '../../../../thirdy-part-components/Dropdown';
 import { COLORS } from '../../Constants';
-import { getVariant } from '../../helpers';
-import Button from '../../../../thirdy-part-components/Button';
+import {
+  getVariant,
+  getColorFiltersFromVariants,
+  formatColor,
+} from '../../helpers';
 import './variants.scss';
 
 class Variants extends React.Component {
   constructor(props) {
     super(props);
-    this.getColorFilters = this.getColorFilters.bind(this);
     this.getBandFilters = this.getBandFilters.bind(this);
     this.getCupFilters = this.getCupFilters.bind(this);
     this.onChangeColor = this.onChangeColor.bind(this);
@@ -58,14 +63,6 @@ class Variants extends React.Component {
     }
   }
 
-  getColorFilters() {
-    const colorFilters = new Set();
-    this.props.variants.forEach((variant) => {
-      colorFilters.add(variant.color);
-    });
-    return [...colorFilters];
-  }
-
   getBandFilters(cup) {
     const bandFilters = [];
     this.props.variants.forEach((variant) => {
@@ -76,7 +73,7 @@ class Variants extends React.Component {
         bandFilters.push(variant.band);
       }
     });
-    const bandFiltersArray = removeDuplicates(bandFilters);
+    const bandFiltersArray = removeDuplicatesArray(bandFilters);
     this.setState(() => ({
       bandFilters: bandFiltersArray,
       selectedBand: bandFiltersArray[0],
@@ -93,7 +90,7 @@ class Variants extends React.Component {
         cupFilters.push(variant.cup);
       }
     });
-    const cupFiltersArray = removeDuplicates(cupFilters);
+    const cupFiltersArray = removeDuplicatesArray(cupFilters);
     this.setState(() => ({
       cupFilters: cupFiltersArray,
       selectedCup: cupFiltersArray[0],
@@ -120,6 +117,8 @@ class Variants extends React.Component {
   }
 
   render() {
+    const colors = getColorFiltersFromVariants(this.props.variants);
+
     const selectedVariant = getObjFromArrayByKey(this.props.variants, this.props.selectedVariantId)
       || this.props.variants[0];
 
@@ -131,14 +130,11 @@ class Variants extends React.Component {
       cup,
     } = selectedVariant;
 
-    const colors = this.getColorFilters();
-
     // TODO: Use form with input dropdown and radios
     return (
       <div className="variants">
-        <Label className="variants-color" text={`COLOR: ${color}`} />
+        <Label className="variants-color" text={`COLOR: ${formatColor(color)}`} />
         <Label className="variants-price" text={formatPrice(price)} />
-        <Label text="COLOR" value="__selected__" />
         {colors && (
           <Swatches
             selected={this.state.selectedColor}

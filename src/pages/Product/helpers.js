@@ -8,7 +8,17 @@ import {
   THUMBNAIL,
   ORIGINAL_LARGE,
   COLORS,
+  NUMBER_OF_ATTRS_VARIANTS,
+  MIN_STOCK,
 } from './Constants';
+
+const getColorFiltersFromVariants = (variants) => {
+  const colorFilters = new Set();
+  variants.forEach((variant) => {
+    colorFilters.add(variant.color);
+  });
+  return [...colorFilters];
+};
 
 const transformImages = (images) => (
   images.reduce((transformedImages, image) => (
@@ -19,10 +29,17 @@ const transformImages = (images) => (
   ), [])
 );
 
+// TODO: Make friendly this func
+const variantHasValidData = (variant) => (
+  Object.values(variant).length === NUMBER_OF_ATTRS_VARIANTS
+);
+
+const variantHasStock = (variant) => (variant[STOCK] >= MIN_STOCK);
+
 // Transform keys and remove invalid elements
 const transformVariants = (variants) => (
   variants.reduce((transformedVariants, variant) => (
-    (variant[STOCK] >= 10 && !!Object.values(variant))
+    (variantHasStock(variant) && variantHasValidData(variant))
       ? transformedVariants.concat({
         id: variant[ID].toString(),
         price: variant[PRICE],
@@ -35,6 +52,8 @@ const transformVariants = (variants) => (
       : transformedVariants
   ), [])
 );
+
+const formatColor = (color) => color.split('-')[0].toUpperCase();
 
 // TODO: Make generic with n filters
 const getVariant = ({
@@ -57,4 +76,6 @@ export {
   transformVariants,
   getVariant,
   getColorsInHex,
+  formatColor,
+  getColorFiltersFromVariants,
 };

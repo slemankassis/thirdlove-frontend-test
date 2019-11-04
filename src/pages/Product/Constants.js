@@ -9,6 +9,8 @@ module.exports = {
   THUMBNAIL: 'src100',
   ORIGINAL_MEDIUM: 'src600',
   ORIGINAL_LARGE: 'src1000',
+  NUMBER_OF_ATTRS_VARIANTS: 5,
+  MIN_STOCK: 10,
   COLORS: {
     'naked-1': '#ffefe5',
     'naked-2': '#dab5a1',

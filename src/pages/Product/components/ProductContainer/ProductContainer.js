@@ -47,11 +47,21 @@ const ProductContainer = ({
     </Container>
   );
 };
-// ProductContainer.propTypes = {
-//   selectedVariantId: PropTypes.string.isRequired,
-//   onChangeVariant: PropTypes.func.isRequired,
-//   variants: PropTypes.arrayOf(PropTypes.object).isRequired,
-//   handleSubmit: PropTypes.func.isRequired,
-// };
+
+ProductContainer.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.object),
+  title: PropTypes.string,
+  selectedVariantId: PropTypes.string.isRequired,
+  onChangeVariant: PropTypes.func.isRequired,
+  variants: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  bodyHtml: PropTypes.string,
+};
+
+ProductContainer.defaultProps = {
+  images: [],
+  title: '',
+  bodyHtml: '',
+};
 
 export default ProductContainer;

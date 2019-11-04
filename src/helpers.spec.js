@@ -1,16 +1,16 @@
 import {
   // TODO: test black box for sanitizeHtml
-  removeDuplicates,
+  removeDuplicatesArray,
   formatPrice,
   getObjFromArrayByKey,
 } from './helpers';
 
-describe('Helpers of App: removeDuplicates', () => {
+describe('Helpers of App: removeDuplicatesArray', () => {
   it('Should convert an array of images objects into another with propertly keys and values for image gallery', () => {
     // Arranging
     const input = ['__VALUE_1__', '__VALUE_2__', '__VALUE_2__'];
     // Acting
-    const result = removeDuplicates(input);
+    const result = removeDuplicatesArray(input);
     // Asserting
     expect(result).toEqual(['__VALUE_1__', '__VALUE_2__']);
   });
