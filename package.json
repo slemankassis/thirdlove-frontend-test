@@ -4,11 +4,7 @@
   "private": true,
   "homepage": "https://slemankassis.github.io/thirdlove-frontend-test/",
   "dependencies": {
-<<<<<<< HEAD
-    "bootstrap": "4.3.1",
-=======
     "bootstrap": "^4.3.1",
->>>>>>> parent of d8e5d6a... Merge master.
     "classnames": "^2.2.6",
     "dompurify": "^2.0.7",
     "gh-pages": "^2.1.1",
