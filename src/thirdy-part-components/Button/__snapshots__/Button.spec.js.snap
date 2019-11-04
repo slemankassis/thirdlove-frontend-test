@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button snaps renders snapshot with fullProps 1`] = `
-"<button className='__TEXT__ __CLASS_NAME__' type='button' onClick={[Function: mockConstructor]}>
+"<Button className='__CLASS_NAME__' type='button' onClick={[Function: mockConstructor]} color='secondary' tag='button'>
   __TEXT__
-</button>"
+</Button>"
 `;
 
-exports[`Button snaps renders snapshot without props 1`] = `"<button className='' type='button' onClick={[Function: onClick]} />"`;
+exports[`Button snaps renders snapshot without props 1`] = `"<Button className='' type='button' onClick={[Function: onClick]} color='secondary' tag='button' />"`;
