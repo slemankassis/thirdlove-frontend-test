@@ -101,6 +101,8 @@ class Variants extends React.Component {
     this.setState(() => ({
       selectedColor: swapObj(COLORS)[value],
     }));
+    this.getBandFilters();
+    this.getCupFilters();
   }
 
   onChangeBand({ value }) {
