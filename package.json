@@ -2,7 +2,7 @@
   "name": "thirdlove-frontend-test",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://slemankassis.bitbucket.io/",
+  "homepage": "https://slemankassis.github.io/thirdlove-frontend-test/",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
