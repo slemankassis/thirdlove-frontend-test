@@ -37,6 +37,7 @@ First mobile
 
 ## Next steps
 
+* Fix the error with node sass when run the app at first time
 * Fix the Warning _componentWillReceiveProps has been renamed, and is not recommended for use._ in CirclePicker component.
 * Add logger.
 * Add error handling.
