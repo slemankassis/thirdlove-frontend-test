@@ -3,7 +3,6 @@ import Variants from './Variants';
 import {
   transformVariants,
 } from '../../helpers';
-import mockData from '../../../../mockData-original';
 
 describe('Variants snaps', () => {
   let props = {};

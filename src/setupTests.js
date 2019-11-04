@@ -7,7 +7,7 @@ import {
 } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-enzyme';
-import mockData from './mockData';
+import mockData from './pages/Product/mocks/mockData';
 
 global.mockData = mockData;
 global.shallow = shallow;

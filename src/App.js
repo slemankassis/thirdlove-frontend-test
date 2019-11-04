@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Product from './pages/Product';
 // import hooks from './hooks';
-import mockData from './mockData';
+import mockData from './pages/Product/mocks/mockData';
 
 function App() {
   // const [data, loading] = hooks.useFetch(

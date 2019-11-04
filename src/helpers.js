@@ -15,8 +15,6 @@ const formatPrice = (price) => {
   return `$${units}${cents !== '00' ? `.${cents}` : ''}`;
 };
 
-const formatColor = (color) => color.split('-')[0].toUpperCase();
-
 const getObjFromArrayByKey = (array, id) => (
   array.find((obj) => obj.id === id)
 );
@@ -34,7 +32,6 @@ export {
   sanitizeHtml,
   removeDuplicatesArray,
   formatPrice,
-  formatColor,
   getObjFromArrayByKey,
   swapObj,
 };

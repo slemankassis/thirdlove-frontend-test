@@ -1,20 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'reactstrap';
-import Label from '../../../../thirdy-part-components/Label';
-import Swatches from '../../../../thirdy-part-components/Swatches';
-import Dropdown from '../../../../thirdy-part-components/Dropdown';
+import Swatches from '../Swatches';
+import {
+  Dropdown,
+  Label,
+  Button,
+} from '../../../../thirdy-part-components';
 import {
   removeDuplicatesArray,
   getObjFromArrayByKey,
   formatPrice,
-  formatColor,
   swapObj,
 } from '../../../../helpers';
 import { COLORS } from '../../Constants';
 import {
   getVariant,
   getColorFiltersFromVariants,
+  formatColor,
 } from '../../helpers';
 import './variants.scss';
 

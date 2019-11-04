@@ -53,6 +53,8 @@ const transformVariants = (variants) => (
   ), [])
 );
 
+const formatColor = (color) => color.split('-')[0].toUpperCase();
+
 // TODO: Make generic with n filters
 const getVariant = ({
   variants,
@@ -74,5 +76,6 @@ export {
   transformVariants,
   getVariant,
   getColorsInHex,
+  formatColor,
   getColorFiltersFromVariants,
 };
