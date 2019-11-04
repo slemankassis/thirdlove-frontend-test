@@ -1,3 +1,5 @@
+@import "./../../../../styles/variables.scss";
+
 .product-description {
   width: 320px;
   height: 389px;
@@ -9,4 +11,12 @@
   line-height: 1.77;
   letter-spacing: normal;
   color: #444444;
+
+  @media (min-width: $breakpoint-tablet) {
+    display: grid;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    display: grid;
+  }
 }

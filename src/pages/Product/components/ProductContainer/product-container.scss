@@ -1,3 +1,5 @@
+@import "./../../../../styles/variables.scss";
+
 .product-title__label {
   width: 335px;
   height: 24px;
@@ -16,4 +18,10 @@
   width: 737px;
   height: 3px;
   background-color: #f7f7f7;
+}
+
+@media (min-width: $breakpoint-desktop) {
+  .container__main {
+    margin: 30px 20%;
+  }
 }

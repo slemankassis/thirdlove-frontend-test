@@ -5,7 +5,7 @@ import { Button } from 'reactstrap';
 import './button.scss';
 
 const Buttonn = ({ text, onClick, className }) => (
-  <Button className={classnames(text, className)} type="button" onClick={onClick}>
+  <Button className={classnames(className)} type="button" onClick={onClick}>
     {text}
   </Button>
 );
