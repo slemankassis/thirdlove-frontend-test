@@ -22,9 +22,11 @@ const ProductContainer = ({
         <Label className="product-title__label" text={title} />
       </Row>
       {images && (
-        <Row>
-          <Carousel images={images} />
-        </Row>
+        <Col md="auto">
+          <Row md="8">
+            <Carousel images={images} />
+          </Row>
+        </Col>
       )}
       <Col>
         {variants && (
@@ -39,7 +41,7 @@ const ProductContainer = ({
         )}
         {bodyHtml && (
           <Row className="product-description">
-            <Label className="product-description__label" text="DESCRIPTION" />
+            <hr className="division" />
             <Description className="product-description__content" contentHtml={bodyHtml} />
           </Row>
         )}
