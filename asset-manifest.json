@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/thirdlove-frontend-test/static/css/main.06d45eb2.chunk.css",
+    "main.js": "/thirdlove-frontend-test/static/js/main.840ce26d.chunk.js",
+    "main.js.map": "/thirdlove-frontend-test/static/js/main.840ce26d.chunk.js.map",
+    "runtime-main.js": "/thirdlove-frontend-test/static/js/runtime-main.a403e70d.js",
+    "runtime-main.js.map": "/thirdlove-frontend-test/static/js/runtime-main.a403e70d.js.map",
+    "static/css/2.833dd627.chunk.css": "/thirdlove-frontend-test/static/css/2.833dd627.chunk.css",
+    "static/js/2.1239f470.chunk.js": "/thirdlove-frontend-test/static/js/2.1239f470.chunk.js",
+    "static/js/2.1239f470.chunk.js.map": "/thirdlove-frontend-test/static/js/2.1239f470.chunk.js.map",
+    "index.html": "/thirdlove-frontend-test/index.html",
+    "precache-manifest.52ef06be2931842cb91aec89d4f8c820.js": "/thirdlove-frontend-test/precache-manifest.52ef06be2931842cb91aec89d4f8c820.js",
+    "service-worker.js": "/thirdlove-frontend-test/service-worker.js",
+    "static/css/2.833dd627.chunk.css.map": "/thirdlove-frontend-test/static/css/2.833dd627.chunk.css.map",
+    "static/css/main.06d45eb2.chunk.css.map": "/thirdlove-frontend-test/static/css/main.06d45eb2.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a403e70d.js",
+    "static/css/2.833dd627.chunk.css",
+    "static/js/2.1239f470.chunk.js",
+    "static/css/main.06d45eb2.chunk.css",
+    "static/js/main.840ce26d.chunk.js"
+  ]
+}
