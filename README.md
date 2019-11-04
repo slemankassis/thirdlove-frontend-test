@@ -3,7 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 [Live demo here](https://slemankassis.github.io/thirdlove-frontend-test/)
 ## Run the project local
 
-* run npm i && npm start
+
+* git checkout master && run npm i && npm start
 
 ## Available Scripts
 
