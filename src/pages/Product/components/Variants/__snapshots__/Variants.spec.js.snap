@@ -14,6 +14,6 @@ exports[`Variants snaps renders snapshot 1`] = `
       <Dropdown selected={{...}} options={{...}} onChange={[Function: bound onChangeCup]} label='CUP SIZE' />
     </div>
   </div>
-  <Button text='Add to Bag' onClick={[Function: onClick]} className='' />
+  <Buttonn className='variants-submit__button full-size' text='Add to Bag' onClick={[Function: onClick]} />
 </div>"
 `;
