@@ -2,10 +2,12 @@
   "name": "thirdlove-frontend-test",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://slemankassis.github.io/thirdlove-frontend-test/",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
     "dompurify": "^2.0.7",
+    "gh-pages": "^2.1.1",
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
@@ -20,6 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
     "lint": "eslint src/**.js",
@@ -42,12 +45,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/slemankassis/thirdlove-frontend-test.git"
+    "url": "git+https://github.io/slemankassis/thirdlove-frontend-test.git"
   },
   "bugs": {
     "url": "https://github.com/slemankassis/thirdlove-frontend-test/issues"
   },
-  "homepage": "https://github.com/slemankassis/thirdlove-frontend-test#readme",
   "author": "Sleman Kassis",
   "license": "ISC",
   "devDependencies": {
