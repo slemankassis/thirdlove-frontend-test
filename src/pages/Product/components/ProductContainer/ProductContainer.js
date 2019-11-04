@@ -17,32 +17,38 @@ const ProductContainer = ({
   bodyHtml,
 }) => {
   return (
-    <Container fluid>
+    <Container fluid className="container__main">
       <Row>
         <Label className="product-title__label" text={title} />
       </Row>
-      {images && (
-        <Row>
-          <Carousel images={images} />
+      <Row md="8">
+        <Col md="auto">
+          <Row md="8">
+            {images && (
+              <Carousel images={images} />
+            )}
+          </Row>
+        </Col>
+        <Col md="auto">
+          {variants && (
+            <Row>
+              <Variants
+                selectedVariantId={selectedVariantId}
+                onChangeVariant={onChangeVariant}
+                variants={variants}
+                handleSubmit={handleSubmit}
+              />
+            </Row>
+          )}
+        </Col>
+      </Row>
+      <Col>
+      {bodyHtml && (
+        <Row xs="12" className="product-description">
+          <hr className="division" />
+          <Description className="product-description__content" contentHtml={bodyHtml} />
         </Row>
       )}
-      <Col>
-        {variants && (
-          <Row>
-            <Variants
-              selectedVariantId={selectedVariantId}
-              onChangeVariant={onChangeVariant}
-              variants={variants}
-              handleSubmit={handleSubmit}
-            />
-          </Row>
-        )}
-        {bodyHtml && (
-          <Row className="product-description">
-            <Label className="product-description__label" text="DESCRIPTION" />
-            <Description className="product-description__content" contentHtml={bodyHtml} />
-          </Row>
-        )}
       </Col>
     </Container>
   );
