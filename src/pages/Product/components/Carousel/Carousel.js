@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ImageGallery from 'react-image-gallery';
 import './carousel.scss';
 
-const Carousel = ({ images }) => <ImageGallery items={images} />;
+const Carousel = ({ images }) => <ImageGallery items={[]} />;
 
 Carousel.propTypes = {
   images: PropTypes.arrayOf(PropTypes.object).isRequired,
