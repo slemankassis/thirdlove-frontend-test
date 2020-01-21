@@ -4,7 +4,7 @@ import ImageGallery from 'react-image-gallery';
 import './carousel.scss';
 
 const Carousel = ({ images }) => {
-  return <ImageGallery items={images} />;
+  return <ImageGallery items=[] />;
 };
 
 Carousel.propTypes = {
